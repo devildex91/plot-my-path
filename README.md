@@ -58,21 +58,43 @@
 ---
 #### Primary Goals
 --- 
+
+THe primary goals are:
+- To provide an application that helps users build a fun and immersive itinery for their holiday.
+- To make planning your holiday as much fun as the holiday. 
+- To show users new experiences and new Holiday destinations. 
+
 [back to top](#plot-my-path)
 #### Business Goals
 ---
+
+The business goals are : 
+
+The business goals are 
 [back to top](#plot-my-path)
 #### User Goals
 ---
 [back to top](#plot-my-path)
 #### User Stories
 ---
-- For full acceptance criteria please see the project board [here]()
+- For full acceptance criteria please see the project board [here](https://github.com/users/devildex91/projects/10)
+
+- As a visitor, I want to browse and search for destinations and attractions, so that I can explore places that I may want to visit.
+- As a registered user, I want to create and manage my own trips, so that I can plan and save my travel arrangements.
+- As a registered user, I want to specify my interests and travel preferences, so that the application can help me create a trip that suits me.
+- As a traveler, I want to build and organise an itinerary for my trip, so that I can plan what I will do each day.
+- As a traveler, I want the application to generate itinerary recommendations based on my preferences, so that I can spend less time manually researching and organizing my trip.
+- As a traveler, I want the application to identify problems with my itinerary, so that I can create a realistic travel plan.
+- As a traveler, I want to see relevant weather information for my destination and travel dates, so that I can make better decisions about my itinerary.
+- As a registered user, I want to securely access my account and manage my premium features, so that my trips and personal information are protected.
+- As a traveler, I want to purchase premium functionality securely, so that I can access additional travel-planning features.
 
 
 [back to top](#plot-my-path)
 #### Design Choices
 ---
+
+
 [back to top](#plot-my-path)
 #### ERD Diagram
 ---
@@ -82,6 +104,8 @@
 [back to top](#plot-my-path)
 #### Wireframes 
 ---
+
+
 [back to top](#plot-my-path)
 ### Features
 ---
