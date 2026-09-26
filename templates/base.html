@@ -1,0 +1,33 @@
+{% load django_vite %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}Plot My Path{% endblock %}
+    </title>
+
+    {% vite_asset 'assets/styles/style.css' %}
+</head>
+
+<body class="min-h-screen bg-base-200">
+
+    <header>
+       
+    </header>
+
+    <main>
+        <div id="root"></div>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% vite_asset 'assets/main.jsx' %}
+
+</body>
+</html>

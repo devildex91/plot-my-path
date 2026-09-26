@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "---",
   "main": "index.js",
-    "scripts": {
+  "scripts": {
+    "dev": "vite",
     "build": "vite build"
   },
   "repository": {
@@ -19,6 +20,14 @@
   },
   "homepage": "https://github.com/devildex91/plot-my-path#readme",
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.1.1",
+    "daisyui": "^5.7.46",
     "vite": "^8.3.1"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwindcss": "^4.3.3"
   }
 }
