@@ -93,7 +93,13 @@ The business goals are
 [back to top](#plot-my-path)
 #### Design Choices
 ---
+Plot My Path is designed as a mobile-first personal travel planning application. The interface is intended to help users discover destinations, create trips, organise activities and make decisions while travelling.
 
+The design uses a clean, modern visual style with rounded cards, generous spacing, clear typography, imagery and a purple/blue primary colour scheme. These choices are intended to make the application feel approachable and easy to navigate while allowing travel information to remain the main focus.
+
+The interface progressively adapts to larger screens rather than creating separate experiences for mobile, tablet and desktop. On smaller screens, information is prioritised and presented sequentially. On larger screens, related information can be displayed simultaneously, making better use of the available space.
+
+This is particularly appropriate for a travel application because users may access the application in different contexts: planning at home on a desktop computer, researching destinations on a tablet, or checking an itinerary while travelling using a mobile phone.
 
 [back to top](#plot-my-path)
 #### ERD Diagram
@@ -104,11 +110,52 @@ The business goals are
 [back to top](#plot-my-path)
 #### Wireframes 
 ---
+Mobile Wireframes 
+---
+- Landing page
+- ![landing page](/static/images/mobile-landing-page.png) 
+- Login page
+- ![login page](/static/images/mobile-login-page.png)
+- Register page
+- ![register page](/static/images/mobile-register-page.png)
+- onboarding pages
+- ![onboarding page](/static/images/mobile-onboarding-pages.png)
+- Home page
+- ![home page](/static/images/mobile-homepage.png)
+- Explore destination page
+- ![explore destination page](/static/images/mobile-explore-destination.png)
+- Destination detail page
+- ![destination detail page](/static/images/mobile-destination-detail.png)
+- Create plan page
+- ![create page](/static/images/mobile-create-plan.png)
+- Trip summary page
+- ![trip summary page](/static/images/mobile-trip-summary.png)
+- Profile page
+- ![profile page](/static/images/mobile-profile.png)
 
-
+Tablet Wireframes
+--- 
+- Note: For landing page, login/register and onboarding pages please see mobile wireframes as the view on tablet will be identical but on a larger scale. 
+- Homepage
+- ![]
+Desktop Wireframes
+--- 
+- Note:For landing page, login/register and onboarding pages please see mobile wireframes as the view on desktop will be identical but on a larger scale.  
 [back to top](#plot-my-path)
 ### Features
 ---
+Plot My Paths features will include:
+- Public Homepage that will display all the relevent information to help the user immediately understand what the application does, who it is for and how it can help, what features are free and what will require a premium membership. 
+- Destination explorer where users can browse destiantions while being told about useful information about each destination to help then decide where to go. 
+- Each destination will then havbe an attraction explorer detailing a category it comes under, estimated visiting time, cost and accessibility for the user. 
+- User Dashboard to make the app feel personal to the user while giving them a reason to log in and potential pay for the premium features on offer. 
+- Trip creation so users can enter trip name, destination, start date and end date, budget, and avaliable hours per day.
+- Trip preferences so that the app can become personalised to the user so they can enter hobbies and interests, budget and other useful information for the premium auto itinerary builder
+- Manual itinierary builder avaliable to everyone so that then can add attractions change orders and plan their days accordingly.
+- Map view so the users can see their destinations on the map.
+- Premium feature: Personalised itenerary builder. 
+
+                    
 
 #### Existing features
 ---
