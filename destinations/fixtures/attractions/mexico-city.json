@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["mexico-city"],
+      "name": "National Museum of Anthropology",
+      "slug": "anthropology-museum-mexico",
+      "description": "A world-class museum housing spectacular pre-Columbian archaeological artifacts, including the Aztec Sun Stone.",
+      "category": "Museum",
+      "latitude": "19.426000",
+      "longitude": "-99.186300",
+      "average_visit_minutes": 180,
+      "entry_cost": "5.00",
+      "rating": "4.90",
+      "opening_time": "09:00:00",
+      "closing_time": "18:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["mexico-city"],
+      "name": "Chapultepec Castle",
+      "slug": "chapultepec-castle",
+      "description": "A historic grand palace positioned atop a sacred hill, offering sweeping park views and national history galleries.",
+      "category": "Historic",
+      "latitude": "19.420400",
+      "longitude": "-99.181800",
+      "average_visit_minutes": 120,
+      "entry_cost": "5.00",
+      "rating": "4.80",
+      "opening_time": "09:00:00",
+      "closing_time": "17:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["mexico-city"],
+      "name": "Palacio de Bellas Artes",
+      "slug": "bellas-artes",
+      "description": "A prominent cultural venue hosting opera and theater, famed for its Art Nouveau white marble exterior.",
+      "category": "Landmark",
+      "latitude": "19.434400",
+      "longitude": "-99.141200",
+      "average_visit_minutes": 60,
+      "entry_cost": "4.50",
+      "rating": "4.70",
+      "opening_time": "10:00:00",
+      "closing_time": "17:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["mexico-city"],
+      "name": "Templo Mayor Museum",
+      "slug": "templo-mayor",
+      "description": "The excavated active archaeological ruins of the primary sacred pyramid temple of the ancient Aztec capital.",
+      "category": "Historic",
+      "latitude": "19.434900",
+      "longitude": "-99.131400",
+      "average_visit_minutes": 90,
+      "entry_cost": "5.00",
+      "rating": "4.70",
+      "opening_time": "09:00:00",
+      "closing_time": "17:00:00"
+    }
+  }
+]

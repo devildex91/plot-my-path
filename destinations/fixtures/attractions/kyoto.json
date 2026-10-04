@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["kyoto"],
+      "name": "Fushimi Inari Shrine",
+      "slug": "fushimi-inari-shrine",
+      "description": "The famous path of thousands of vibrant vermilion torii gates winding up Mount Inari.",
+      "category": "Culture",
+      "latitude": "34.967100",
+      "longitude": "135.772700",
+      "average_visit_minutes": 150,
+      "entry_cost": "0.00",
+      "rating": "4.80",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["kyoto"],
+      "name": "Kinkaku-ji (The Golden Pavilion)",
+      "slug": "kinkaku-ji",
+      "description": "A breathtaking Zen Buddhist temple whose top two floors are completely covered in gold leaf.",
+      "category": "Historic",
+      "latitude": "35.039400",
+      "longitude": "135.729200",
+      "average_visit_minutes": 60,
+      "entry_cost": "4.00",
+      "rating": "4.70",
+      "opening_time": "09:00:00",
+      "closing_time": "17:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["kyoto"],
+      "name": "Kiyomizu-dera Temple",
+      "slug": "kiyomizu-dera",
+      "description": "An ancient iconic temple built entirely without nails, featuring a massive wooden veranda overlooking the city.",
+      "category": "Historic",
+      "latitude": "34.994900",
+      "longitude": "135.785000",
+      "average_visit_minutes": 90,
+      "entry_cost": "3.50",
+      "rating": "4.70",
+      "opening_time": "06:00:00",
+      "closing_time": "18:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["kyoto"],
+      "name": "Arashiyama Bamboo Grove",
+      "slug": "arashiyama-bamboo-grove",
+      "description": "A mesmerizing natural path lined with soaring towers of bright green stalks.",
+      "category": "Nature",
+      "latitude": "35.015600",
+      "longitude": "135.671500",
+      "average_visit_minutes": 45,
+      "entry_cost": "0.00",
+      "rating": "4.60",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  }
+]

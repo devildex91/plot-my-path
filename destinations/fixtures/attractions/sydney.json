@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["sydney"],
+      "name": "Sydney Opera House",
+      "slug": "sydney-opera-house",
+      "description": "A world-famous 20th-century architectural masterpiece shaped like grand billowing sails on the harbor.",
+      "category": "Landmark",
+      "latitude": "-33.856800",
+      "longitude": "151.215300",
+      "average_visit_minutes": 60,
+      "entry_cost": "0.00",
+      "rating": "4.70",
+      "opening_time": "09:00:00",
+      "closing_time": "17:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["sydney"],
+      "name": "Sydney Harbour Bridge",
+      "slug": "sydney-harbour-bridge",
+      "description": "A massive steel arch bridge spanning the harbor, offering dramatic pedestrian walkways and climb views.",
+      "category": "Historic",
+      "latitude": "-33.852300",
+      "longitude": "151.210800",
+      "average_visit_minutes": 45,
+      "entry_cost": "0.00",
+      "rating": "4.80",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["sydney"],
+      "name": "Taronga Zoo",
+      "slug": "taronga-zoo",
+      "description": "A harbor-side zoo showcasing unique native Australian wildlife along with spectacular city skyline vistas.",
+      "category": "Nature",
+      "latitude": "-33.843500",
+      "longitude": "151.241300",
+      "average_visit_minutes": 180,
+      "entry_cost": "49.00",
+      "rating": "4.60",
+      "opening_time": "09:30:00",
+      "closing_time": "16:30:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["sydney"],
+      "name": "Bondi Beach",
+      "slug": "bondi-beach",
+      "description": "One of the world's most famous coastal surf breaks, known for its pristine crescent of sand and vibrant promenade.",
+      "category": "Beach",
+      "latitude": "-33.890800",
+      "longitude": "151.274300",
+      "average_visit_minutes": 120,
+      "entry_cost": "0.00",
+      "rating": "4.60",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  }
+]

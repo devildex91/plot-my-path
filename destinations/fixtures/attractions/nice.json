@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["nice"],
+      "name": "Promenade des Anglais",
+      "slug": "promenade-des-anglais",
+      "description": "An iconic 7-kilometer pedestrian boulevard running alongside the pebble bays of the Mediterranean Sea.",
+      "category": "Sightseeing",
+      "latitude": "43.693100",
+      "longitude": "7.247800",
+      "average_visit_minutes": 60,
+      "entry_cost": "0.00",
+      "rating": "4.70",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["nice"],
+      "name": "Castle Hill (Colline du Château)",
+      "slug": "castle-hill-nice",
+      "description": "A scenic clifftop park site offering an artificial waterfall and panoramic bay views.",
+      "category": "Nature",
+      "latitude": "43.695800",
+      "longitude": "7.279800",
+      "average_visit_minutes": 90,
+      "entry_cost": "0.00",
+      "rating": "4.70",
+      "opening_time": "08:30:00",
+      "closing_time": "20:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["nice"],
+      "name": "Vieille Ville (Old Town)",
+      "slug": "old-town-nice",
+      "description": "A historic labyrinth of narrow streets filled with pastel buildings, boutique cafes, and markets.",
+      "category": "Historic",
+      "latitude": "43.697000",
+      "longitude": "7.275000",
+      "average_visit_minutes": 90,
+      "entry_cost": "0.00",
+      "rating": "4.60",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["nice"],
+      "name": "Musée Marc Chagall",
+      "slug": "chagall-museum",
+      "description": "A national museum dedicated to the brilliant, colorful biblical paintings of artist Marc Chagall.",
+      "category": "Museum",
+      "latitude": "43.709300",
+      "longitude": "7.270200",
+      "average_visit_minutes": 75,
+      "entry_cost": "10.00",
+      "rating": "4.50",
+      "opening_time": "10:00:00",
+      "closing_time": "17:00:00"
+    }
+  }
+]

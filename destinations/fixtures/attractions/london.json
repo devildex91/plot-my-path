@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["london"],
+      "name": "The British Museum",
+      "slug": "british-museum",
+      "description": "A world-famous museum showcasing millions of years of human history, art, and ancient world artifacts.",
+      "category": "Museum",
+      "latitude": "51.519400",
+      "longitude": "-0.127000",
+      "average_visit_minutes": 180,
+      "entry_cost": "0.00",
+      "rating": "4.70",
+      "opening_time": "10:00:00",
+      "closing_time": "17:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["london"],
+      "name": "Tower of London",
+      "slug": "tower-of-london",
+      "description": "An ancient 11th-century castle fortress housing the spectacular Crown Jewels and historic guards.",
+      "category": "Historic",
+      "latitude": "51.508100",
+      "longitude": "-0.075900",
+      "average_visit_minutes": 150,
+      "entry_cost": "33.00",
+      "rating": "4.60",
+      "opening_time": "09:00:00",
+      "closing_time": "17:30:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["london"],
+      "name": "The London Eye",
+      "slug": "london-eye",
+      "description": "A giant Ferris wheel structure on the South Bank of the River Thames providing panoramic city views.",
+      "category": "Landmark",
+      "latitude": "51.503300",
+      "longitude": "-0.119500",
+      "average_visit_minutes": 45,
+      "entry_cost": "38.00",
+      "rating": "4.50",
+      "opening_time": "10:00:00",
+      "closing_time": "20:30:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["london"],
+      "name": "Westminster Abbey",
+      "slug": "westminster-abbey",
+      "description": "The historic Gothic church used for royal coronations, weddings, and famous British burials.",
+      "category": "Culture",
+      "latitude": "51.499400",
+      "longitude": "-0.127300",
+      "average_visit_minutes": 90,
+      "entry_cost": "27.00",
+      "rating": "4.60",
+      "opening_time": "09:30:00",
+      "closing_time": "15:30:00"
+    }
+  }
+]

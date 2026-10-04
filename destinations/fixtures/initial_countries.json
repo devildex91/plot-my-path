@@ -1,0 +1,178 @@
+[
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "Japan",
+      "code": "JPN",
+      "continent": "Asia"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "India",
+      "code": "IND",
+      "continent": "Asia"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "South Korea",
+      "code": "KOR",
+      "continent": "Asia"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "Thailand",
+      "code": "THA",
+      "continent": "Asia"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "France",
+      "code": "FRA",
+      "continent": "Europe"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "United Kingdom",
+      "code": "GBR",
+      "continent": "Europe"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "Italy",
+      "code": "ITA",
+      "continent": "Europe"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "Spain",
+      "code": "ESP",
+      "continent": "Europe"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "United States",
+      "code": "USA",
+      "continent": "North America"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "Canada",
+      "code": "CAN",
+      "continent": "North America"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "Mexico",
+      "code": "MEX",
+      "continent": "North America"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "Brazil",
+      "code": "BRA",
+      "continent": "South America"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "Argentina",
+      "code": "ARG",
+      "continent": "South America"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "Peru",
+      "code": "PER",
+      "continent": "South America"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "Colombia",
+      "code": "COL",
+      "continent": "South America"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "South Africa",
+      "code": "ZAF",
+      "continent": "Africa"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "Egypt",
+      "code": "EGY",
+      "continent": "Africa"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "Kenya",
+      "code": "KEN",
+      "continent": "Africa"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "Morocco",
+      "code": "MAR",
+      "continent": "Africa"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "Australia",
+      "code": "AUS",
+      "continent": "Oceania"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "New Zealand",
+      "code": "NZL",
+      "continent": "Oceania"
+    }
+  },
+  {
+    "model": "destinations.country",
+    "fields": {
+      "name": "Fiji",
+      "code": "FJI",
+      "continent": "Oceania"
+    }
+  }
+]

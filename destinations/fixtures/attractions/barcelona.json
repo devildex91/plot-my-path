@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["barcelona"],
+      "name": "La Sagrada Familia",
+      "slug": "sagrada-familia",
+      "description": "Antoni Gaudí's unfinished geometric masterpiece basilica, famed for towering organic spires.",
+      "category": "Landmark",
+      "latitude": "41.403600",
+      "longitude": "2.174400",
+      "average_visit_minutes": 120,
+      "entry_cost": "26.00",
+      "rating": "4.70",
+      "opening_time": "09:00:00",
+      "closing_time": "18:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["barcelona"],
+      "name": "Park Güell",
+      "slug": "park-guell",
+      "description": "A colorful mosaic-filled public park complex designed by Gaudí on Carmel Hill.",
+      "category": "Nature",
+      "latitude": "41.414500",
+      "longitude": "2.152700",
+      "average_visit_minutes": 90,
+      "entry_cost": "10.00",
+      "rating": "4.50",
+      "opening_time": "09:30:00",
+      "closing_time": "19:30:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["barcelona"],
+      "name": "Casa Batlló",
+      "slug": "casa-batllo",
+      "description": "A uniquely sculpted modernist residential building showcasing Gaudí's animalistic, skeletal design features.",
+      "category": "Architecture",
+      "latitude": "41.391700",
+      "longitude": "2.164900",
+      "average_visit_minutes": 75,
+      "entry_cost": "35.00",
+      "rating": "4.60",
+      "opening_time": "09:00:00",
+      "closing_time": "22:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["barcelona"],
+      "name": "Gothic Quarter (Barri Gòtic)",
+      "slug": "gothic-quarter",
+      "description": "The charming historic center of old Barcelona, filled with narrow medieval alleys and stone plazas.",
+      "category": "Historic",
+      "latitude": "41.383300",
+      "longitude": "2.176900",
+      "average_visit_minutes": 90,
+      "entry_cost": "0.00",
+      "rating": "4.60",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  }
+]

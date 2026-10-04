@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["vancouver"],
+      "name": "Stanley Park",
+      "slug": "stanley-park",
+      "description": "A magnificent green rainforest peninsula park completely encircled by a scenic beachfront seawall.",
+      "category": "Nature",
+      "latitude": "49.302800",
+      "longitude": "-123.140100",
+      "average_visit_minutes": 180,
+      "entry_cost": "0.00",
+      "rating": "4.80",
+      "opening_time": "06:00:00",
+      "closing_time": "22:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["vancouver"],
+      "name": "Capilano Suspension Bridge",
+      "slug": "capilano-bridge",
+      "description": "A thrilling 140-meter-long suspension bridge hanging high above a rushing river canyon.",
+      "category": "Landmark",
+      "latitude": "49.342900",
+      "longitude": "-123.114900",
+      "average_visit_minutes": 120,
+      "entry_cost": "65.00",
+      "rating": "4.60",
+      "opening_time": "09:00:00",
+      "closing_time": "18:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["vancouver"],
+      "name": "Granville Island Public Market",
+      "slug": "granville-island-market",
+      "description": "A vibrant indoor artistic industrial center packed with fresh gourmet food, crafts, and buskers.",
+      "category": "Sightseeing",
+      "latitude": "49.270300",
+      "longitude": "-123.135100",
+      "average_visit_minutes": 90,
+      "entry_cost": "0.00",
+      "rating": "4.70",
+      "opening_time": "09:00:00",
+      "closing_time": "18:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["vancouver"],
+      "name": "Vancouver Art Gallery",
+      "slug": "vancouver-art-gallery",
+      "description": "A major art museum housed in a historic neo-classical courthouse site downtown.",
+      "category": "Museum",
+      "latitude": "49.282900",
+      "longitude": "-123.120500",
+      "average_visit_minutes": 90,
+      "entry_cost": "24.00",
+      "rating": "4.40",
+      "opening_time": "10:00:00",
+      "closing_time": "17:00:00"
+    }
+  }
+]

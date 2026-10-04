@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["bangkok"],
+      "name": "The Grand Palace",
+      "slug": "the-grand-palace",
+      "description": "A spectacular complex of royal buildings and ornate temples, including the sacred Wat Phra Kaew.",
+      "category": "Historic",
+      "latitude": "13.750000",
+      "longitude": "100.491300",
+      "average_visit_minutes": 150,
+      "entry_cost": "15.00",
+      "rating": "4.70",
+      "opening_time": "08:30:00",
+      "closing_time": "15:30:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["bangkok"],
+      "name": "Wat Arun (Temple of Dawn)",
+      "slug": "wat-arun",
+      "description": "An iconic riverside Buddhist temple featuring towering, intricately decorated porcelain spires.",
+      "category": "Culture",
+      "latitude": "13.743700",
+      "longitude": "100.488900",
+      "average_visit_minutes": 60,
+      "entry_cost": "3.00",
+      "rating": "4.70",
+      "opening_time": "08:00:00",
+      "closing_time": "18:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["bangkok"],
+      "name": "Wat Pho",
+      "slug": "wat-pho",
+      "description": "Famed temple housing a massive 46-meter gold-plated Reclining Buddha and traditional massage school.",
+      "category": "Historic",
+      "latitude": "13.746500",
+      "longitude": "100.493300",
+      "average_visit_minutes": 75,
+      "entry_cost": "6.00",
+      "rating": "4.70",
+      "opening_time": "08:00:00",
+      "closing_time": "18:30:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["bangkok"],
+      "name": "Chatuchak Weekend Market",
+      "slug": "chatuchak-market",
+      "description": "One of the world's largest open-air weekend markets, filled with over 15,000 diverse trade stalls.",
+      "category": "Sightseeing",
+      "latitude": "13.799900",
+      "longitude": "100.550500",
+      "average_visit_minutes": 180,
+      "entry_cost": "0.00",
+      "rating": "4.50",
+      "opening_time": "09:00:00",
+      "closing_time": "18:00:00"
+    }
+  }
+]

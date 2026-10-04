@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["toronto"],
+      "name": "CN Tower",
+      "slug": "cn-tower",
+      "description": "A soaring 553-meter concrete communications tower offering glass-floor observations over Lake Ontario.",
+      "category": "Landmark",
+      "latitude": "43.642600",
+      "longitude": "-79.387100",
+      "average_visit_minutes": 90,
+      "entry_cost": "43.00",
+      "rating": "4.70",
+      "opening_time": "09:30:00",
+      "closing_time": "21:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["toronto"],
+      "name": "Royal Ontario Museum (ROM)",
+      "slug": "rom-museum",
+      "description": "A museum showcasing art, world culture, and natural history with an iconic, crystalline architectural wing.",
+      "category": "Museum",
+      "latitude": "43.667700",
+      "longitude": "-79.394800",
+      "average_visit_minutes": 150,
+      "entry_cost": "26.00",
+      "rating": "4.70",
+      "opening_time": "10:00:00",
+      "closing_time": "17:30:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["toronto"],
+      "name": "Ripley's Aquarium of Canada",
+      "slug": "ripleys-aquarium-toronto",
+      "description": "A massive indoor aquarium featuring a long underwater moving sidewalk path through shark tunnels.",
+      "category": "Nature",
+      "latitude": "43.642200",
+      "longitude": "-79.386000",
+      "average_visit_minutes": 120,
+      "entry_cost": "44.00",
+      "rating": "4.70",
+      "opening_time": "09:00:00",
+      "closing_time": "21:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["toronto"],
+      "name": "Distillery Historic District",
+      "slug": "distillery-district",
+      "description": "A trendy pedestrian village set in restored 19th-century red-brick industrial whiskey factories.",
+      "category": "Historic",
+      "latitude": "43.650300",
+      "longitude": "-79.359600",
+      "average_visit_minutes": 75,
+      "entry_cost": "0.00",
+      "rating": "4.60",
+      "opening_time": "10:00:00",
+      "closing_time": "21:00:00"
+    }
+  }
+]

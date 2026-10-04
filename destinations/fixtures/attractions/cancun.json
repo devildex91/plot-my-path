@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["cancun"],
+      "name": "Playa Delfines",
+      "slug": "playa-delfines",
+      "description": "A stunning open beach famed for clear turquoise waters, large waves, and the iconic colorful Cancun photo sign.",
+      "category": "Beach",
+      "latitude": "21.060600",
+      "longitude": "-86.779700",
+      "average_visit_minutes": 120,
+      "entry_cost": "0.00",
+      "rating": "4.60",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["cancun"],
+      "name": "El Rey Archaeological Zone",
+      "slug": "el-rey-ruins",
+      "description": "An easily accessible ancient Mayan ruins site situated right inside the main hotel resort strip.",
+      "category": "Historic",
+      "latitude": "21.062800",
+      "longitude": "-86.780100",
+      "average_visit_minutes": 45,
+      "entry_cost": "3.50",
+      "rating": "4.30",
+      "opening_time": "08:00:00",
+      "closing_time": "17:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["cancun"],
+      "name": "Cancun Underwater Museum (MUSA)",
+      "slug": "musa-cancun",
+      "description": "An incredible underwater art installation featuring over 500 life-sized statues accessible via diving or glass boats.",
+      "category": "Museum",
+      "latitude": "21.194400",
+      "longitude": "-86.736900",
+      "average_visit_minutes": 150,
+      "entry_cost": "50.00",
+      "rating": "4.50",
+      "opening_time": "09:00:00",
+      "closing_time": "17:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["cancun"],
+      "name": "Interactive Aquarium Cancun",
+      "slug": "interactive-aquarium-cancun",
+      "description": "A modern mall-based open aquarium offering dolphin viewings, touch tanks, and family dining sites.",
+      "category": "Nature",
+      "latitude": "21.115400",
+      "longitude": "-86.761800",
+      "average_visit_minutes": 90,
+      "entry_cost": "20.00",
+      "rating": "4.20",
+      "opening_time": "09:00:00",
+      "closing_time": "20:00:00"
+    }
+  }
+]

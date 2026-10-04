@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["madrid"],
+      "name": "Prado Museum",
+      "slug": "prado-museum",
+      "description": "Spain's premier national art museum, housing unmatched collections of Velázquez, Goya, and El Greco.",
+      "category": "Museum",
+      "latitude": "40.413800",
+      "longitude": "-3.692100",
+      "average_visit_minutes": 150,
+      "entry_cost": "15.00",
+      "rating": "4.70",
+      "opening_time": "10:00:00",
+      "closing_time": "20:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["madrid"],
+      "name": "Royal Palace of Madrid",
+      "slug": "royal-palace-madrid",
+      "description": "The monumental official residence of the Spanish royal family, containing over 3,000 opulent rooms.",
+      "category": "Historic",
+      "latitude": "40.417900",
+      "longitude": "-3.714300",
+      "average_visit_minutes": 120,
+      "entry_cost": "12.00",
+      "rating": "4.60",
+      "opening_time": "10:00:00",
+      "closing_time": "19:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["madrid"],
+      "name": "El Retiro Park",
+      "slug": "retiro-park",
+      "description": "A magnificent, expansive city park featuring a peaceful rowing lake and a beautiful glass Crystal Palace.",
+      "category": "Nature",
+      "latitude": "40.415300",
+      "longitude": "-3.683900",
+      "average_visit_minutes": 120,
+      "entry_cost": "0.00",
+      "rating": "4.80",
+      "opening_time": "06:00:00",
+      "closing_time": "00:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["madrid"],
+      "name": "Plaza Mayor",
+      "slug": "plaza-mayor-madrid",
+      "description": "A grand central arcaded square in the heart of Madrid, famous for historic events and outdoor cafes.",
+      "category": "Landmark",
+      "latitude": "40.415500",
+      "longitude": "-3.707400",
+      "average_visit_minutes": 45,
+      "entry_cost": "0.00",
+      "rating": "4.50",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  }
+]

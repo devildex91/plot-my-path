@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["new-york-city"],
+      "name": "Central Park",
+      "slug": "central-park",
+      "description": "A massive, iconic urban oasis in the center of Manhattan featuring lakes, historic bridges, and lawns.",
+      "category": "Nature",
+      "latitude": "40.785100",
+      "longitude": "-74.006000",
+      "average_visit_minutes": 180,
+      "entry_cost": "0.00",
+      "rating": "4.80",
+      "opening_time": "06:00:00",
+      "closing_time": "01:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["new-york-city"],
+      "name": "Empire State Building",
+      "slug": "empire-state-building",
+      "description": "An iconic 102-story Art Deco skyscraper providing beautiful bird's-eye views of the Manhattan skyline.",
+      "category": "Landmark",
+      "latitude": "40.748400",
+      "longitude": "-73.985700",
+      "average_visit_minutes": 90,
+      "entry_cost": "44.00",
+      "rating": "4.70",
+      "opening_time": "08:00:00",
+      "closing_time": "23:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["new-york-city"],
+      "name": "The Metropolitan Museum of Art",
+      "slug": "the-met",
+      "description": "One of the world's finest art museums, containing over two million works spanning thousands of years.",
+      "category": "Museum",
+      "latitude": "40.779400",
+      "longitude": "-73.963200",
+      "average_visit_minutes": 180,
+      "entry_cost": "30.00",
+      "rating": "4.80",
+      "opening_time": "10:00:00",
+      "closing_time": "17:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["new-york-city"],
+      "name": "Statue of Liberty",
+      "slug": "statue-of-liberty",
+      "description": "The monumental neoclassical copper sculpture on Liberty Island representing freedom and democracy.",
+      "category": "Historic",
+      "latitude": "40.689200",
+      "longitude": "-74.044500",
+      "average_visit_minutes": 150,
+      "entry_cost": "24.00",
+      "rating": "4.70",
+      "opening_time": "09:00:00",
+      "closing_time": "16:00:00"
+    }
+  }
+]

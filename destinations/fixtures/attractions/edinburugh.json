@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["edinburgh"],
+      "name": "Edinburgh Castle",
+      "slug": "edinburgh-castle",
+      "description": "A powerful historic fortress standing high on an extinct volcanic rock overlooking the city.",
+      "category": "Historic",
+      "latitude": "55.948600",
+      "longitude": "-3.199900",
+      "average_visit_minutes": 120,
+      "entry_cost": "19.50",
+      "rating": "4.60",
+      "opening_time": "09:30:00",
+      "closing_time": "18:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["edinburgh"],
+      "name": "The Royal Mile",
+      "slug": "royal-mile",
+      "description": "A beautiful succession of historic streets connecting the Castle to Holyrood Palace.",
+      "category": "Sightseeing",
+      "latitude": "55.950400",
+      "longitude": "-3.186200",
+      "average_visit_minutes": 60,
+      "entry_cost": "0.00",
+      "rating": "4.70",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["edinburgh"],
+      "name": "Arthur's Seat",
+      "slug": "arthurs-seat",
+      "description": "An ancient dormant volcano peak in Holyrood Park offering sweeping hill hikes and lookouts.",
+      "category": "Nature",
+      "latitude": "55.944200",
+      "longitude": "-3.161800",
+      "average_visit_minutes": 120,
+      "entry_cost": "0.00",
+      "rating": "4.80",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["edinburgh"],
+      "name": "National Museum of Scotland",
+      "slug": "national-museum-scotland",
+      "description": "A massive collection detailing Scottish history, science, world cultures, and design arts.",
+      "category": "Museum",
+      "latitude": "55.947000",
+      "longitude": "-3.190600",
+      "average_visit_minutes": 150,
+      "entry_cost": "0.00",
+      "rating": "4.80",
+      "opening_time": "10:00:00",
+      "closing_time": "17:00:00"
+    }
+  }
+]

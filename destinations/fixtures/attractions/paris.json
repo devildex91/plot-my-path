@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["paris"],
+      "name": "Eiffel Tower",
+      "slug": "eiffel-tower",
+      "description": "The globally recognized wrought-iron symbol of France, offering unforgettable skyline lookouts.",
+      "category": "Landmark",
+      "latitude": "48.858400",
+      "longitude": "2.294500",
+      "average_visit_minutes": 120,
+      "entry_cost": "26.00",
+      "rating": "4.60",
+      "opening_time": "09:30:00",
+      "closing_time": "22:45:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["paris"],
+      "name": "Louvre Museum",
+      "slug": "louvre-museum",
+      "description": "The world's largest art museum, housing iconic masterpieces like the Mona Lisa.",
+      "category": "Museum",
+      "latitude": "48.860600",
+      "longitude": "2.337600",
+      "average_visit_minutes": 240,
+      "entry_cost": "17.00",
+      "rating": "4.70",
+      "opening_time": "09:00:00",
+      "closing_time": "18:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["paris"],
+      "name": "Arc de Triomphe",
+      "slug": "arc-de-triomphe",
+      "description": "A monumental triumphal arch honoring those who fought and died for France in historic wars.",
+      "category": "Historic",
+      "latitude": "48.873800",
+      "longitude": "2.295000",
+      "average_visit_minutes": 60,
+      "entry_cost": "13.00",
+      "rating": "4.70",
+      "opening_time": "10:00:00",
+      "closing_time": "22:15:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["paris"],
+      "name": "Sainte-Chapelle",
+      "slug": "sainte-chapelle",
+      "description": "A stunning 13th-century royal chapel renowned for its collection of breathtaking stained glass windows.",
+      "category": "Culture",
+      "latitude": "48.855400",
+      "longitude": "2.345000",
+      "average_visit_minutes": 45,
+      "entry_cost": "11.50",
+      "rating": "4.80",
+      "opening_time": "09:00:00",
+      "closing_time": "17:00:00"
+    }
+  }
+]

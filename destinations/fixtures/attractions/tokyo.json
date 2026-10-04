@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["tokyo"],
+      "name": "Senso-ji Temple",
+      "slug": "senso-ji-temple",
+      "description": "Tokyo's oldest and most iconic Buddhist temple located in the heart of Asakusa.",
+      "category": "Historic",
+      "latitude": "35.714800",
+      "longitude": "139.796700",
+      "average_visit_minutes": 90,
+      "entry_cost": "0.00",
+      "rating": "4.70",
+      "opening_time": "06:00:00",
+      "closing_time": "17:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["tokyo"],
+      "name": "Tokyo Tower",
+      "slug": "tokyo-tower",
+      "description": "An iconic Eiffel Tower-inspired communication structure providing beautiful panoramic city views.",
+      "category": "Landmark",
+      "latitude": "35.658600",
+      "longitude": "139.745400",
+      "average_visit_minutes": 60,
+      "entry_cost": "10.00",
+      "rating": "4.50",
+      "opening_time": "09:00:00",
+      "closing_time": "22:30:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["tokyo"],
+      "name": "Meiji Jingu Shrine",
+      "slug": "meiji-jingu-shrine",
+      "description": "A grand, peaceful Shinto shrine surrounded by a massive, forested sacred park.",
+      "category": "Culture",
+      "latitude": "35.676400",
+      "longitude": "139.699300",
+      "average_visit_minutes": 75,
+      "entry_cost": "0.00",
+      "rating": "4.60",
+      "opening_time": "05:00:00",
+      "closing_time": "18:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["tokyo"],
+      "name": "Shibuya Crossing",
+      "slug": "shibuya-crossing",
+      "description": "The world-famous, high-energy pedestrian scramble intersection surrounded by giant neon signs.",
+      "category": "Sightseeing",
+      "latitude": "35.659500",
+      "longitude": "139.700500",
+      "average_visit_minutes": 30,
+      "entry_cost": "0.00",
+      "rating": "4.50",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  }
+]

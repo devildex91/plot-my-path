@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["chiang-mai"],
+      "name": "Wat Phra That Doi Suthep",
+      "slug": "doi-suthep",
+      "description": "A magnificent mountaintop golden temple offering panoramic vistas over the valley.",
+      "category": "Culture",
+      "latitude": "18.804900",
+      "longitude": "98.921600",
+      "average_visit_minutes": 120,
+      "entry_cost": "1.00",
+      "rating": "4.80",
+      "opening_time": "06:00:00",
+      "closing_time": "20:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["chiang-mai"],
+      "name": "Wat Chedi Luang",
+      "slug": "wat-chedi-luang",
+      "description": "The majestic ruins of a massive 14th-century stone temple structure located in the Old City center.",
+      "category": "Historic",
+      "latitude": "18.787100",
+      "longitude": "98.986500",
+      "average_visit_minutes": 60,
+      "entry_cost": "1.20",
+      "rating": "4.60",
+      "opening_time": "05:00:00",
+      "closing_time": "22:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["chiang-mai"],
+      "name": "Chiang Mai Night Bazaar",
+      "slug": "night-bazaar",
+      "description": "A massive nightly street market famous for northern Thai handicrafts, clothes, and food stalls.",
+      "category": "Sightseeing",
+      "latitude": "18.785000",
+      "longitude": "99.000200",
+      "average_visit_minutes": 90,
+      "entry_cost": "0.00",
+      "rating": "4.40",
+      "opening_time": "17:00:00",
+      "closing_time": "00:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["chiang-mai"],
+      "name": "Doi Inthanon National Park",
+      "slug": "doi-inthanon",
+      "description": "Thailand's highest peak mountain sanctuary featuring cloud forests, waterfalls, and twin scenic stupas.",
+      "category": "Nature",
+      "latitude": "18.591600",
+      "longitude": "98.486700",
+      "average_visit_minutes": 240,
+      "entry_cost": "9.00",
+      "rating": "4.70",
+      "opening_time": "05:00:00",
+      "closing_time": "18:00:00"
+    }
+  }
+]

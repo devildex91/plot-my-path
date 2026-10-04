@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["busan"],
+      "name": "Haeundae Beach",
+      "slug": "haeundae-beach",
+      "description": "South Korea's most famous wide sandy beach, backed by high-rises and a bustling food square.",
+      "category": "Beach",
+      "latitude": "35.158700",
+      "longitude": "129.160400",
+      "average_visit_minutes": 120,
+      "entry_cost": "0.00",
+      "rating": "4.60",
+      "opening_time": "09:00:00",
+      "closing_time": "18:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["busan"],
+      "name": "Gamcheon Culture Village",
+      "slug": "gamcheon-village",
+      "description": "A steeply terraced coastal enclave famed for its brightly painted houses, alleys, and street art murals.",
+      "category": "Culture",
+      "latitude": "35.097500",
+      "longitude": "129.009300",
+      "average_visit_minutes": 90,
+      "entry_cost": "0.00",
+      "rating": "4.50",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["busan"],
+      "name": "Haedong Yonggungsa Temple",
+      "slug": "haedong-yonggungsa",
+      "description": "A rare, stunning Buddhist temple uniquely built directly on a rocky cliff face overlooking the ocean.",
+      "category": "Historic",
+      "latitude": "35.188500",
+      "longitude": "129.223400",
+      "average_visit_minutes": 75,
+      "entry_cost": "0.00",
+      "rating": "4.70",
+      "opening_time": "05:00:00",
+      "closing_time": "20:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["busan"],
+      "name": "Jagalchi Fish Market",
+      "slug": "jagalchi-market",
+      "description": "Korea's largest seafood market, showcasing vast stalls of live catch and second-floor cooking kitchens.",
+      "category": "Sightseeing",
+      "latitude": "35.096800",
+      "longitude": "129.030600",
+      "average_visit_minutes": 60,
+      "entry_cost": "0.00",
+      "rating": "4.40",
+      "opening_time": "05:00:00",
+      "closing_time": "22:00:00"
+    }
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["rome"],
+      "name": "The Colosseum",
+      "slug": "colosseum",
+      "description": "The largest ancient amphitheater ever constructed, famed for gladiator spectacles.",
+      "category": "Historic",
+      "latitude": "41.890200",
+      "longitude": "12.492200",
+      "average_visit_minutes": 120,
+      "entry_cost": "16.00",
+      "rating": "4.70",
+      "opening_time": "08:30:00",
+      "closing_time": "19:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["rome"],
+      "name": "Trevi Fountain",
+      "slug": "trevi-fountain",
+      "description": "A stunning, world-famous Baroque stone fountain where travelers toss coins for good fortune.",
+      "category": "Landmark",
+      "latitude": "41.900900",
+      "longitude": "12.483300",
+      "average_visit_minutes": 30,
+      "entry_cost": "0.00",
+      "rating": "4.80",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["rome"],
+      "name": "The Pantheon",
+      "slug": "pantheon-rome",
+      "description": "A remarkably preserved ancient Roman temple building sporting a massive concrete oculus dome.",
+      "category": "Historic",
+      "latitude": "41.898600",
+      "longitude": "12.476900",
+      "average_visit_minutes": 60,
+      "entry_cost": "5.00",
+      "rating": "4.70",
+      "opening_time": "09:00:00",
+      "closing_time": "19:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["rome"],
+      "name": "Roman Forum",
+      "slug": "roman-forum",
+      "description": "A vast, sprawling open ruin plaza surrounded by the architectural remnants of ancient government hubs.",
+      "category": "Culture",
+      "latitude": "41.892500",
+      "longitude": "12.485300",
+      "average_visit_minutes": 90,
+      "entry_cost": "16.00",
+      "rating": "4.60",
+      "opening_time": "09:00:00",
+      "closing_time": "19:15:00"
+    }
+  }
+]

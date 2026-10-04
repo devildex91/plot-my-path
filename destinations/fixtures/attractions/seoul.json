@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["seoul"],
+      "name": "Gyeongbokgung Palace",
+      "slug": "gyeongbokgung-palace",
+      "description": "The largest and primary royal palace built by the Joseon Dynasty, featuring traditional guard shifts.",
+      "category": "Historic",
+      "latitude": "37.579600",
+      "longitude": "126.977000",
+      "average_visit_minutes": 120,
+      "entry_cost": "2.50",
+      "rating": "4.70",
+      "opening_time": "09:00:00",
+      "closing_time": "18:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["seoul"],
+      "name": "N Seoul Tower",
+      "slug": "n-seoul-tower",
+      "description": "An iconic communication landmark atop Namsan Mountain offering birds-eye views of the capital.",
+      "category": "Landmark",
+      "latitude": "37.551200",
+      "longitude": "126.988200",
+      "average_visit_minutes": 90,
+      "entry_cost": "12.00",
+      "rating": "4.50",
+      "opening_time": "10:00:00",
+      "closing_time": "23:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["seoul"],
+      "name": "Bukchon Hanok Village",
+      "slug": "bukchon-hanok-village",
+      "description": "A preserved historic residential neighborhood filled with hundreds of traditional Korean wooden houses.",
+      "category": "Culture",
+      "latitude": "37.582900",
+      "longitude": "126.983500",
+      "average_visit_minutes": 60,
+      "entry_cost": "0.00",
+      "rating": "4.50",
+      "opening_time": "09:00:00",
+      "closing_time": "17:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["seoul"],
+      "name": "Dongdaemun Design Plaza (DDP)",
+      "slug": "ddp-seoul",
+      "description": "A hyper-futuristic, silver architectural marvel housing design exhibitions and fashion shows.",
+      "category": "Sightseeing",
+      "latitude": "37.566800",
+      "longitude": "127.009600",
+      "average_visit_minutes": 75,
+      "entry_cost": "0.00",
+      "rating": "4.60",
+      "opening_time": "10:00:00",
+      "closing_time": "21:00:00"
+    }
+  }
+]

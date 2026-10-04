@@ -1,0 +1,530 @@
+[
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Japan"],
+      "name": "Tokyo",
+      "slug": "tokyo",
+      "description": "A hyper-modern metropolis blending neon skyscrapers with historic Shinto shrines.",
+      "latitude": "35.676200",
+      "longitude": "139.650300",
+      "average_cost_per_day": "150.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Japan"],
+      "name": "Kyoto",
+      "slug": "kyoto",
+      "description": "The cultural heart of Japan, famous for thousands of classical Buddhist temples and pristine zen gardens.",
+      "latitude": "35.011600",
+      "longitude": "135.768100",
+      "average_cost_per_day": "110.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["India"],
+      "name": "New Delhi",
+      "slug": "new-delhi",
+      "description": "A bustling capital city steeped in history, featuring massive fortresses, bustling markets, and grand monuments.",
+      "latitude": "28.613900",
+      "longitude": "77.209000",
+      "average_cost_per_day": "45.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["India"],
+      "name": "Mumbai",
+      "slug": "mumbai",
+      "description": "A dynamic financial hub and heart of the Bollywood film industry, located right on the Arabian Sea coast.",
+      "latitude": "19.076000",
+      "longitude": "72.877700",
+      "average_cost_per_day": "55.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["South Korea"],
+      "name": "Seoul",
+      "slug": "seoul",
+      "description": "A high-tech capital where modern skyscrapers and pop culture meet historic palaces and street markets.",
+      "latitude": "37.566500",
+      "longitude": "126.978000",
+      "average_cost_per_day": "120.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["South Korea"],
+      "name": "Busan",
+      "slug": "busan",
+      "description": "A scenic coastal city known for its expansive beaches, seafood markets, and beautiful mountain temples.",
+      "latitude": "35.179600",
+      "longitude": "129.075600",
+      "average_cost_per_day": "95.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Thailand"],
+      "name": "Bangkok",
+      "slug": "bangkok",
+      "description": "A vibrant capital renowned for ornate shrines, intense street life, and dynamic floating markets.",
+      "latitude": "13.756300",
+      "longitude": "100.501800",
+      "average_cost_per_day": "50.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Thailand"],
+      "name": "Chiang Mai",
+      "slug": "chiang-mai",
+      "description": "A mountainous city in northern Thailand, famous for its historic Old City walls and misty rainforest sanctuaries.",
+      "latitude": "18.788300",
+      "longitude": "98.985300",
+      "average_cost_per_day": "40.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["France"],
+      "name": "Paris",
+      "slug": "paris",
+      "description": "A global center for art, fashion, gastronomy, and world-famous cafe culture.",
+      "latitude": "48.856600",
+      "longitude": "2.352200",
+      "average_cost_per_day": "180.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["France"],
+      "name": "Nice",
+      "slug": "nice",
+      "description": "A beautiful coastal city on the French Riviera, known for its pebble beaches and sunny Mediterranean climate.",
+      "latitude": "43.710200",
+      "longitude": "7.262000",
+      "average_cost_per_day": "140.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["United Kingdom"],
+      "name": "London",
+      "slug": "london",
+      "description": "The historic capital of the UK, boasting iconic sites like Big Ben, the Tower of London, and world-class museums.",
+      "latitude": "51.507400",
+      "longitude": "-0.127800",
+      "average_cost_per_day": "190.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["United Kingdom"],
+      "name": "Edinburgh",
+      "slug": "edinburgh",
+      "description": "Scotland's compact, hilly capital, featuring a historic medieval Old Town and a striking clifftop castle.",
+      "latitude": "55.953300",
+      "longitude": "-3.188300",
+      "average_cost_per_day": "145.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Italy"],
+      "name": "Rome",
+      "slug": "rome",
+      "description": "A sprawling cosmopolitan city with nearly 3,000 years of globally influential art, architecture, and culture.",
+      "latitude": "41.902800",
+      "longitude": "12.496400",
+      "average_cost_per_day": "160.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Italy"],
+      "name": "Florence",
+      "slug": "florence",
+      "description": "The cradle of the Renaissance, famous for iconic masterpieces of art and brilliant red-domed architecture.",
+      "latitude": "43.769600",
+      "longitude": "11.255800",
+      "average_cost_per_day": "150.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Spain"],
+      "name": "Madrid",
+      "slug": "madrid",
+      "description": "Spain's central capital, known for elegant boulevards, expansive parks, and rich repositories of European art.",
+      "latitude": "40.416800",
+      "longitude": "-3.703800",
+      "average_cost_per_day": "130.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Spain"],
+      "name": "Barcelona",
+      "slug": "barcelona",
+      "description": "The seaside capital of Catalonia, celebrated globally for its whimsical Antoni Gaudí architecture.",
+      "latitude": "41.385100",
+      "longitude": "2.173400",
+      "average_cost_per_day": "150.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["United States"],
+      "name": "New York City",
+      "slug": "new-york-city",
+      "description": "The Big Apple, featuring iconic landmarks like Times Square, Central Park, and the Broadway theater district.",
+      "latitude": "40.712800",
+      "longitude": "-74.006000",
+      "average_cost_per_day": "220.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["United States"],
+      "name": "Los Angeles",
+      "slug": "los-angeles",
+      "description": "The entertainment capital of the world, home to Hollywood, sandy beaches, and sprawling urban landscapes.",
+      "latitude": "34.052200",
+      "longitude": "-118.243700",
+      "average_cost_per_day": "190.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Canada"],
+      "name": "Toronto",
+      "slug": "toronto",
+      "description": "A dynamic Canadian metropolis with a soaring skyline punctuated by the iconic CN Tower.",
+      "latitude": "43.653200",
+      "longitude": "-79.383200",
+      "average_cost_per_day": "165.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Canada"],
+      "name": "Vancouver",
+      "slug": "vancouver",
+      "description": "A bustling west coast seaport surrounded by majestic mountains, popular for filming and outdoor sports.",
+      "latitude": "49.282700",
+      "longitude": "-123.120700",
+      "average_cost_per_day": "155.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Mexico"],
+      "name": "Mexico City",
+      "slug": "mexico-city",
+      "description": "The high-altitude capital city famous for Aztec ruins, colonial design, and a booming culinary scene.",
+      "latitude": "19.432600",
+      "longitude": "-99.133200",
+      "average_cost_per_day": "65.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Mexico"],
+      "name": "Cancun",
+      "slug": "cancun",
+      "description": "A world-famous resort destination bordered by the beautiful turquoise waters of the Caribbean Sea.",
+      "latitude": "21.161900",
+      "longitude": "-86.851500",
+      "average_cost_per_day": "110.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Brazil"],
+      "name": "Rio de Janeiro",
+      "slug": "rio-de-janeiro",
+      "description": "A seaside city framed by Copacabana beach and the towering Christ the Redeemer statue.",
+      "latitude": "-22.906800",
+      "longitude": "-43.172900",
+      "average_cost_per_day": "85.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Brazil"],
+      "name": "Sao Paulo",
+      "slug": "sao-paulo",
+      "description": "A massive, sprawling financial center ranked among the world's most populous modern cities.",
+      "latitude": "-23.550500",
+      "longitude": "-46.633300",
+      "average_cost_per_day": "80.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Argentina"],
+      "name": "Buenos Aires",
+      "slug": "buenos-aires",
+      "description": "Argentina's cosmopolitan capital city, famous for European architecture, tango dancing, and rich steakhouses.",
+      "latitude": "-34.603700",
+      "longitude": "-58.381600",
+      "average_cost_per_day": "75.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Argentina"],
+      "name": "Bariloche",
+      "slug": "bariloche",
+      "description": "A beautiful town nestled in the Andes mountains, famous for Swiss-like architecture and alpine ski slopes.",
+      "latitude": "-41.133500",
+      "longitude": "-71.310300",
+      "average_cost_per_day": "90.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Peru"],
+      "name": "Lima",
+      "slug": "lima",
+      "description": "The historic capital of Peru, located on the arid Pacific coast and renowned as South America's food capital.",
+      "latitude": "-12.046400",
+      "longitude": "-77.042800",
+      "average_cost_per_day": "60.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Peru"],
+      "name": "Cusco",
+      "slug": "cusco",
+      "description": "A city high up in the Andes mountains that once served as the historic capital of the ancient Incan Empire.",
+      "latitude": "-13.532000",
+      "longitude": "-71.967500",
+      "average_cost_per_day": "65.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Colombia"],
+      "name": "Bogota",
+      "slug": "bogota",
+      "description": "A high-altitude capital city featuring cobblestone colonial paths alongside striking high-rises.",
+      "latitude": "4.711000",
+      "longitude": "-74.072100",
+      "average_cost_per_day": "55.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Colombia"],
+      "name": "Medellin",
+      "slug": "medellin",
+      "description": "Nicknamed the City of Eternal Spring, framed by a gorgeous mountain valley and modern cable car systems.",
+      "latitude": "6.244200",
+      "longitude": "-75.581200",
+      "average_cost_per_day": "60.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["South Africa"],
+      "name": "Cape Town",
+      "slug": "cape-town",
+      "description": "A breathtaking port city uniquely positioned beneath the dramatic, flat top of Table Mountain.",
+      "latitude": "-33.924900",
+      "longitude": "18.424100",
+      "average_cost_per_day": "90.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["South Africa"],
+      "name": "Johannesburg",
+      "slug": "johannesburg",
+      "description": "South Africa's large urban economic powerhouse, deeply rooted in history, gold rush heritage, and street art.",
+      "latitude": "-26.204100",
+      "longitude": "28.047300",
+      "average_cost_per_day": "80.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Egypt"],
+      "name": "Cairo",
+      "slug": "cairo",
+      "description": "Egypt's historic capital on the Nile River, famously home to the Giza Pyramids and complex street labyrinths.",
+      "latitude": "30.044400",
+      "longitude": "31.235700",
+      "average_cost_per_day": "50.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Egypt"],
+      "name": "Luxor",
+      "slug": "luxor",
+      "description": "An ancient open-air monument valley featuring the spectacular Valley of the Kings and Karnak temples.",
+      "latitude": "25.687200",
+      "longitude": "32.639600",
+      "average_cost_per_day": "55.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Kenya"],
+      "name": "Nairobi",
+      "slug": "nairobi",
+      "description": "Kenya's capital city, globally unique for having a full-scale game reserve park right outside its skyscrapers.",
+      "latitude": "-1.292100",
+      "longitude": "36.821900",
+      "average_cost_per_day": "70.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Kenya"],
+      "name": "Mombasa",
+      "slug": "mombasa",
+      "description": "A historic tropical island city on the Indian Ocean coast, blending African, Arabic, and Portuguese architecture.",
+      "latitude": "-4.054700",
+      "longitude": "39.663600",
+      "average_cost_per_day": "65.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Morocco"],
+      "name": "Marrakech",
+      "slug": "marrakech",
+      "description": "A historical economic hub featuring palace remnants, intricate souk markets, and vibrant city squares.",
+      "latitude": "31.629500",
+      "longitude": "-7.981100",
+      "average_cost_per_day": "65.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Morocco"],
+      "name": "Casablanca",
+      "slug": "casablanca",
+      "description": "A modern commercial port city showcasing French colonial history combined with traditional Moorish architecture.",
+      "latitude": "33.573100",
+      "longitude": "-7.589800",
+      "average_cost_per_day": "75.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Australia"],
+      "name": "Sydney",
+      "slug": "sydney",
+      "description": "Famous for its world-class Opera House, massive steel Harbour Bridge, and pristine surf coast sand bays.",
+      "latitude": "-33.868800",
+      "longitude": "151.209300",
+      "average_cost_per_day": "160.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Australia"],
+      "name": "Melbourne",
+      "slug": "melbourne",
+      "description": "Australia's vibrant cultural capital, heavily celebrated for street art laneways and coffee house culture.",
+      "latitude": "-37.813600",
+      "longitude": "144.963100",
+      "average_cost_per_day": "140.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["New Zealand"],
+      "name": "Auckland",
+      "slug": "auckland",
+      "description": "A major urban center in the North Island based around two massive harbors and extinct volcanic peaks.",
+      "latitude": "-36.848500",
+      "longitude": "174.763300",
+      "average_cost_per_day": "135.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["New Zealand"],
+      "name": "Queenstown",
+      "slug": "queenstown",
+      "description": "The adventure tourism capital of the South Island, framed beautifully by dramatic lake and mountain scenery.",
+      "latitude": "-45.031200",
+      "longitude": "168.662600",
+      "average_cost_per_day": "150.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Fiji"],
+      "name": "Suva",
+      "slug": "suva",
+      "description": "The bustling island capital city of Fiji, showing off grand colonial-era architecture and rich local food markets.",
+      "latitude": "-18.124800",
+      "longitude": "178.450100",
+      "average_cost_per_day": "95.00"
+    }
+  },
+  {
+    "model": "destinations.destination",
+    "fields": {
+      "country": ["Fiji"],
+      "name": "Nadi",
+      "slug": "nadi",
+      "description": "A warm transit port hub on the main island, serving as the main entry point to beautiful coral beaches and resorts.",
+      "latitude": "-17.776500",
+      "longitude": "177.415000",
+      "average_cost_per_day": "120.00"
+    }
+  }
+]

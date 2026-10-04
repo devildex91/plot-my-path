@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["florence"],
+      "name": "Florence Cathedral (Duomo)",
+      "slug": "florence-duomo",
+      "description": "A magnificent Gothic cathedral famed for its striking terracotta tile dome engineered by Brunelleschi.",
+      "category": "Landmark",
+      "latitude": "43.773200",
+      "longitude": "11.256000",
+      "average_visit_minutes": 90,
+      "entry_cost": "0.00",
+      "rating": "4.80",
+      "opening_time": "10:15:00",
+      "closing_time": "16:45:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["florence"],
+      "name": "Uffizi Gallery",
+      "slug": "uffizi-gallery",
+      "description": "One of the world's preeminent art museums, holding masterpieces by Botticelli, Michelangelo, and Da Vinci.",
+      "category": "Museum",
+      "latitude": "43.767800",
+      "longitude": "11.255300",
+      "average_visit_minutes": 180,
+      "entry_cost": "20.00",
+      "rating": "4.70",
+      "opening_time": "08:15:00",
+      "closing_time": "18:30:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["florence"],
+      "name": "Ponte Vecchio",
+      "slug": "ponte-vecchio",
+      "description": "An iconic medieval stone arch bridge over the Arno River lined with jewelry shops.",
+      "category": "Historic",
+      "latitude": "43.768000",
+      "longitude": "11.253200",
+      "average_visit_minutes": 30,
+      "entry_cost": "0.00",
+      "rating": "4.70",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["florence"],
+      "name": "Galleria dell'Accademia",
+      "slug": "accademia-gallery",
+      "description": "An art museum most famous for housing Michelangelo's colossal marble masterpiece, the statue of David.",
+      "category": "Culture",
+      "latitude": "43.776900",
+      "longitude": "11.258700",
+      "average_visit_minutes": 75,
+      "entry_cost": "13.00",
+      "rating": "4.60",
+      "opening_time": "08:15:00",
+      "closing_time": "18:50:00"
+    }
+  }
+]

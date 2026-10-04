@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["new-delhi"],
+      "name": "The Red Fort",
+      "slug": "the-red-fort",
+      "description": "A massive 17th-century Mughal empire sandstone fortress complex featuring royal museums.",
+      "category": "Historic",
+      "latitude": "28.656200",
+      "longitude": "77.241000",
+      "average_visit_minutes": 120,
+      "entry_cost": "7.50",
+      "rating": "4.50",
+      "opening_time": "09:30:00",
+      "closing_time": "16:30:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["new-delhi"],
+      "name": "Qutub Minar",
+      "slug": "qutub-minar",
+      "description": "A soaring 73-meter victory tower and UNESCO World Heritage site built in the 12th century.",
+      "category": "Landmark",
+      "latitude": "28.524400",
+      "longitude": "77.185500",
+      "average_visit_minutes": 90,
+      "entry_cost": "7.00",
+      "rating": "4.60",
+      "opening_time": "07:00:00",
+      "closing_time": "17:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["new-delhi"],
+      "name": "Humayun's Tomb",
+      "slug": "humayuns-tomb",
+      "description": "A beautiful garden tomb built for a Mughal emperor, which inspired the architecture of the Taj Mahal.",
+      "category": "Historic",
+      "latitude": "28.593300",
+      "longitude": "77.250700",
+      "average_visit_minutes": 90,
+      "entry_cost": "7.00",
+      "rating": "4.70",
+      "opening_time": "06:00:00",
+      "closing_time": "18:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["new-delhi"],
+      "name": "India Gate",
+      "slug": "india-gate",
+      "description": "A grand triumphal arch war memorial honoring Indian soldiers, flanked by popular green lawns.",
+      "category": "Landmark",
+      "latitude": "28.612900",
+      "longitude": "77.229500",
+      "average_visit_minutes": 45,
+      "entry_cost": "0.00",
+      "rating": "4.60",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  }
+]

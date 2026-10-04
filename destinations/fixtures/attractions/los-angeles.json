@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["los-angeles"],
+      "name": "Griffith Observatory",
+      "slug": "griffith-observatory",
+      "description": "A stunning Art Deco mountaintop observatory providing beautiful lookouts over LA and the Hollywood Sign.",
+      "category": "Science",
+      "latitude": "34.118400",
+      "longitude": "-118.300400",
+      "average_visit_minutes": 120,
+      "entry_cost": "0.00",
+      "rating": "4.70",
+      "opening_time": "12:00:00",
+      "closing_time": "22:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["los-angeles"],
+      "name": "Santa Monica Pier",
+      "slug": "santa-monica-pier",
+      "description": "A historic double-jointed beach pier featuring a famous solar-powered Ferris wheel amusement park.",
+      "category": "Sightseeing",
+      "latitude": "34.010000",
+      "longitude": "-118.496100",
+      "average_visit_minutes": 90,
+      "entry_cost": "0.00",
+      "rating": "4.60",
+      "opening_time": "06:00:00",
+      "closing_time": "22:00:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["los-angeles"],
+      "name": "The Getty Center",
+      "slug": "getty-center",
+      "description": "A hilltop art museum complex celebrated for its modern architecture, gardens, and vast global art collection.",
+      "category": "Museum",
+      "latitude": "34.078000",
+      "longitude": "-118.474100",
+      "average_visit_minutes": 150,
+      "entry_cost": "0.00",
+      "rating": "4.80",
+      "opening_time": "10:00:00",
+      "closing_time": "17:30:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["los-angeles"],
+      "name": "Hollywood Walk of Fame",
+      "slug": "walk-of-fame",
+      "description": "Sidewalks along Hollywood Boulevard embedded with thousands of five-pointed terrazzo stars honoring celebrities.",
+      "category": "Landmark",
+      "latitude": "34.101600",
+      "longitude": "-118.326800",
+      "average_visit_minutes": 45,
+      "entry_cost": "0.00",
+      "rating": "4.00",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  }
+]

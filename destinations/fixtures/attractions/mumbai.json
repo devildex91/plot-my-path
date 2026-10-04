@@ -1,0 +1,70 @@
+[
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["mumbai"],
+      "name": "Gateway of India",
+      "slug": "gateway-of-india",
+      "description": "An iconic 20th-century basalt arch monument overlooking the Arabian Sea harbor.",
+      "category": "Landmark",
+      "latitude": "18.922000",
+      "longitude": "72.834700",
+      "average_visit_minutes": 45,
+      "entry_cost": "0.00",
+      "rating": "4.60",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["mumbai"],
+      "name": "Chhatrapati Shivaji Maharaj Terminus",
+      "slug": "csmt-station",
+      "description": "A historic, grand Victorian Gothic Revival railway station and functioning UNESCO site.",
+      "category": "Historic",
+      "latitude": "18.940000",
+      "longitude": "72.835400",
+      "average_visit_minutes": 45,
+      "entry_cost": "0.00",
+      "rating": "4.70",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["mumbai"],
+      "name": "Elephanta Caves",
+      "slug": "elephanta-caves",
+      "description": "An island cluster of ancient rock-cut cave temples dedicated to Lord Shiva, accessible by ferry.",
+      "category": "Culture",
+      "latitude": "18.963300",
+      "longitude": "72.931500",
+      "average_visit_minutes": 180,
+      "entry_cost": "8.00",
+      "rating": "4.50",
+      "opening_time": "09:00:00",
+      "closing_time": "17:30:00"
+    }
+  },
+  {
+    "model": "destinations.attraction",
+    "fields": {
+      "destination": ["mumbai"],
+      "name": "Marine Drive",
+      "slug": "marine-drive",
+      "description": "An iconic 3-kilometer arc-shaped promenade offering beautiful sea breezes and evening city views.",
+      "category": "Sightseeing",
+      "latitude": "18.943000",
+      "longitude": "72.823000",
+      "average_visit_minutes": 60,
+      "entry_cost": "0.00",
+      "rating": "4.60",
+      "opening_time": "00:00:00",
+      "closing_time": "23:59:00"
+    }
+  }
+]
