@@ -1,11 +1,12 @@
 import { createRoot } from 'react-dom/client';
-
-const rootElement = document.getElementById('root');
+import Onboarding from './components/onboarding.jsx';
+const rootElement = document.getElementById('onboarding');
 
 if (rootElement) {
+    const homeUrl = rootElement.getAttribute('data-home-url')
+    const landingUrl = rootElement.getAttribute('data-landing-url')
     createRoot(rootElement).render(
-        <h1 className="text-3xl font-bold text-primary">
-            Plot My Path
-        </h1>
+        <Onboarding homeUrl={homeUrl}
+          />
     );
 }

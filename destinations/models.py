@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 # Create your models here.
@@ -36,7 +37,12 @@ class Destination(models.Model):
     average_cost_per_day = models.DecimalField(max_digits=10, decimal_places=2)
 
     objects = DestinationManager()
-
+    # allows me to treate images like a database field when calling without storing image in db
+    @property
+    def get_image_url(self):
+        cloud_name = getattr(settings, 'CLOUDINARY_CLOUD_NAME', 'dxhclnrp')
+        return f"https://res.cloudinary.com/{cloud_name}/image/upload/v1/{self.slug}"
+    
     def natural_key(self):
         return (self.slug,)
      
@@ -61,6 +67,13 @@ class Attraction(models.Model):
     class Meta:
         unique_together = ('destination', 'slug')
 
+    @property
+    def get_image_url(self):
+        # Safely fetches just the text name from your settings configuration
+        cloud_name = getattr(settings, 'CLOUDINARY_CLOUD_NAME', 'dxhclnrp')
+        # TARGETS THE 'attractions' FOLDER:
+        return f"https://res.cloudinary.com{cloud_name}/image/upload/v1/{self.slug}"
+    
     def __str__(self):
         return self.name
 

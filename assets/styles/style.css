@@ -3,17 +3,8 @@
      themes: fantasy --default;
 }
 
-.allauth-form input:not([type="checkbox"]):not([type="radio"]),
-.allauth-form select,
-.allauth-form textarea {
-     width: 100%;
-     padding: 0.5rem 0.75rem;
-     border: var(--border) solid var(--input-color, var(--color-base-content));
-     border-radius: var(--radius-field);
-     color: var(--color-base-content);
-     background-color: var(--color-base-100);
+@plugin "daisyui/theme" {
+  name: "fantasy";
+  --color-primary: #322EB5; 
 }
 
-.allauth-form input[type="checkbox"] {
-     accent-color: var(--color-primary);
-}

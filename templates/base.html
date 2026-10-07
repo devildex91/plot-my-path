@@ -2,9 +2,10 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="fantasy">
 
 <head>
+    {% vite_react_refresh %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -14,20 +15,31 @@
     </title>
 
     {% vite_asset 'assets/styles/style.css' %}
-    <data-theme="fantasy">
+    
 </head>
 
 <body class="min-h-screen bg-base-200">
 
     <header>
-       
+       {% block header %}
+
+       {% endblock %}
     </header>
 
-    <main>
-        <div id="root"></div>
+    <main class="flex-grow">
         {% block content %}
+
         {% endblock %}
     </main>
+<nav class="navbar bg-base-100 shadow-sm mt-auto">
+    
+    <div class="navbar flex justify-around gap-4">
+    <a href="/home" class="text-2xl">🛖</a>
+    <a href="/trips" class="text-2xl">🛍️</a>
+    <a href="/explore" class="text-2xl">🧭</a>
+    <a href="/profile" class="text-2xl">🧙‍♂️</a>
+    </div>
+</nav>
 
     {% vite_asset 'assets/main.jsx' %}
 

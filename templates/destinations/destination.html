@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Destination</h1>
+<div id="search-bar">
+<label for="destination-search" class="hidden">Filter destinations</label>
+<input type="search" id="destination-search"name="destination-search" placeholder="Search destinations...">
+</div>
+<span><button>All</button> <button>Europe </button> <button>Asia</button> <button>Americas</button> </span>
+<section>
+{% for destination in destinations %}
+
+<div class="card card-side bg-base-100 shadow-sm m-2">
+  <figure class="w-1/2">
+    <img
+    src="{{destination.get_image_url}}"alt="{{destination.name}}">
+  </figure>
+  <div class="card-body w-1/3">
+    <h2 class="card-title">{{destination.name}}</h2>
+    
+    <p>Average cost per day:£{{destination.average_cost_per_day}}</p>
+    <div class="card-actions justify-end">
+      <a href="{% url 'details' destination.id %}">View Details</a>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+</section>
+ 
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+ {% block content %}
+           
+<img
+    src="{{destination.get_image_url}}"alt="{{destination.name}}">
+    <h2>{{destination.name}}</h2>
+    <p>{{destination.description}}</p>
+    <p>{{destination.average_cost_per_day}}</p>
+    <a href="{% url 'destination_lists' %}">Back to destinations</a>
+    
+     {% endblock content %}

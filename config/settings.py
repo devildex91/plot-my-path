@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 import os
 from pathlib import Path
 
+import cloudinary
 import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,9 +30,11 @@ env.read_env(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 GOOGLE_KEY = env("GOOGLE_KEY")
 APPLE_KEY = env("APPLE_KEY")
-
+CLOUDINARY_URL = env("CLOUDINARY_URL")
+#splits url for security
+CLOUDINARY_CLOUD_NAME = cloudinary.config().cloud_name
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 

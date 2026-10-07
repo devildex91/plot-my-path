@@ -24,4 +24,5 @@ urlpatterns = [
     path("homepage/", TemplateView.as_view(template_name="base.html")),
     path("accounts/", include("allauth.urls")),
     path("", include("core.urls")),
+    path("destination/", include("destinations.urls")),
 ]

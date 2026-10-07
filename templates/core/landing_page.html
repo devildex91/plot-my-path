@@ -1,0 +1,30 @@
+{% load django_vite %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en" data-theme="fantasy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plot My Path</title>
+     {% vite_asset 'assets/styles/style.css' %}
+</head>
+<body class="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat" 
+      style="background-image: url('{% static 'images/landing_background.avif' %}');">
+    
+      <header class="w-full flex justify-center pt-8">
+        
+            <img src="{% static 'images/pmp-logo.png' %}" alt="Logo" class="w-50 h-auto">
+            
+        
+    </header>
+   <main class="flex-grow align-center mt-4  text-primary">
+<h1 class="text-4xl sm:text-5xl font-bold tracking-tight bg-base-100/40 rounded-xl w-fit mx-auto">Plot My Path</h1>
+   </main>
+   <footer class="flex flex-col-reverse  text-primary justify-content">
+    <a href="{% url 'onboarding_page' %}" class ="btn btn-primary mx-2 mb-4 rounded-xl sm:w-md sm:self-center">Your next adventure start here...</a>
+   </footer>
+
+</body>
+</html>
