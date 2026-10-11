@@ -1,71 +1,53 @@
-{% extends "account/base_entrance.html" %}
+{% extends "allauth/layouts/base.html" %}
 {% load i18n %}
-{% load static %}
-{% load allauth account %}
+{% load allauth_ui %}
+{% load widget_tweaks %}
 
-{% block head_title %}
-    {% trans "Sign In" %}
-{% endblock head_title %}
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
 {% block content %}
-<div class="flex flex-row items-center justify-center gap-2">
-    <img class=" size-18 mt-12"  src = "{% static 'images/pmp-logo.png' %}" alt = "Plot My path Logo" />
-    {% element h1 class="text-4xl mt-12" %}
-        {% trans "Plot My Path" %}
-    {% endelement %}
-</div>
-<div class = "flex flex-col items-center justify-center">
-<h2 class = "text-2xl mt-3">Welcome Back</h2>
-    <p class = "mt-2">Log in to continue planning your next adventure </p>
-</div>
-
-    {% if not SOCIALACCOUNT_ONLY %}
-        {% setvar link %}
-            <a href="{{ signup_url }}">
-            {% endsetvar %}
-            {% setvar end_link %}
-            </a>
-        {% endsetvar %}
-        {% element p %}
-            {% blocktranslate %}If you have not created an account yet, then please {{ link }}sign up{{ end_link }} first.{% endblocktranslate %}
-        {% endelement %}
-        {% url 'account_login' as login_url %}
-        {% element form form=form method="post" action=login_url class="allauth-form" tags="entrance,login" %}
-            {% slot body %}
+    {% trans "Welcome Back" as heading %}
+    {% trans "Sign In" as button_label %}
+    
+    {% #container heading=heading %}
+    <p> Log in to continue planning your next adventure</p>
+        {% if not SOCIALACCOUNT_ONLY %}
+            {% url 'account_login' as action_url %}
+            
+            {% #form form=form url=action_url button_text=button_label  %}
                 {% csrf_token %}
-                {% element fields form=form unlabeled=True %}
-                {% endelement %}
+                
+                {% if form.remember %}
+                    <div class="items-start my-2 form-control">
+                        <label class="cursor-pointer label">
+                            {% render_field form.remember class="checkbox checkbox-primary rounded-md" %}
+                            <span class="ml-2 label-text text-xs text-slate-500">{% trans "Remember me" %}</span>
+                        </label>
+                    </div>
+                {% endif %}
+                
                 {{ redirect_field }}
-            {% endslot %}
-            {% slot actions %}
-                {% element button type="submit" class="btn btn-secondary" tags="prominent,login" %}
-                    {% trans "Sign In" %}
-                {% endelement %}
-            {% endslot %}
-        {% endelement %}
-    {% endif %}
-    {% if LOGIN_BY_CODE_ENABLED or PASSKEY_LOGIN_ENABLED %}
-        {% element hr %}
-        {% endelement %}
-        {% element button_group vertical=True %}
-            {% if PASSKEY_LOGIN_ENABLED %}
-                {% element button type="submit" form="mfa_login" id="passkey_login" tags="prominent,login,outline,primary" %}
-                    {% trans "Sign in with a passkey" %}
-                {% endelement %}
-            {% endif %}
-            {% if LOGIN_BY_CODE_ENABLED %}
-                {% element button href=request_login_code_url tags="prominent,login,outline,primary" %}
-                    {% trans "Send me a sign-in code" %}
-                {% endelement %}
-            {% endif %}
-        {% endelement %}
-    {% endif %}
-    {% if SOCIALACCOUNT_ENABLED %}
-        {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-    {% endif %}
+                
+                <div class="flex flex-col mt-2">
+                    <a class="link self-end text-sm font-bold text-slate-400 hover:text-primary transition-colors no-underline"
+                       href="{% url 'account_reset_password' %}">{% trans "Forgot password?" %}</a>
+                </div>
+            {% /form %}
+        {% endif %}
+        
+        {% if LOGIN_BY_CODE_ENABLED %}
+            <div class="divider my-4"></div>
+            <a href="{{ request_login_code_url }}" class="btn btn-outline btn-sm w-full rounded-xl">{% trans "Mail me a sign-in code" %}</a>
+        {% endif %}
+        
+        {% if SOCIALACCOUNT_ENABLED %}
+            {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+        {% endif %}
+        
+       
+        <p class="text-center text-xs text-slate-400 mt-6">
+            {% blocktranslate %}Don't have an account? 
+            <a class="font-medium text-primary hover:underline" href="{{ signup_url }}">Sign up</a>{% endblocktranslate %}
+        </p>
+    {% /container %}
 {% endblock content %}
-{% block extra_body %}
-    {{ block.super }}
-    {% if PASSKEY_LOGIN_ENABLED %}
-        {% include "mfa/webauthn/snippets/login_script.html" with button_id="passkey_login" %}
-    {% endif %}
-{% endblock %}

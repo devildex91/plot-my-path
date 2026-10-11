@@ -1,39 +1,56 @@
-
-{% load django_vite %}
+{# djlint:off H006 #}
 {% load i18n %}
+{% load django_vite %}
+{% load static %}
+{% load allauth_ui %}
 <!DOCTYPE html>
-<html>
+<html data-theme="fantasy">
     <head>
-        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/cbfde23805.js" crossorigin="anonymous"></script>
         <title>
             {% block head_title %}
             {% endblock head_title %}
         </title>
-        {% vite_asset 'assets/styles/style.css' %}
         {% block extra_head %}
+              {% vite_asset 'assets/styles/style.css' %}
         {% endblock extra_head %}
-        
     </head>
-    <body data-theme="fantasy" class="min-h-screen">
+        <body class="min-h-screen bg-slate-50 flex flex-col justify-center items-center px-4 py-12">
         {% block body %}
             {% if messages %}
-                <div>
-                    <strong>{% trans "Messages:" %}</strong>
-                    <ul>
-                        {% for message in messages %}<li>{{ message }}</li>{% endfor %}
-                    </ul>
+                <div class="w-full max-w-md mb-4">
+                    {% for message in messages %}
+                        <div role="alert" class="text-sm md:text-base alert alert-{{ message.tags }}">
+                            <span><strong>{{ message }}</strong></span>
+                        </div>
+                    {% endfor %}
                 </div>
             {% endif %}
-            <div>
+
+            
+            <div class="w-full max-w-md bg-white rounded-3xl p-8 shadow-sm border border-base-300">
                 
                
+                <div class=" flex flex-row justify-center items-center mb-6">
+                    <img src="{% static 'images/pmp-logo.png' %}" alt="Plot My Path Logo" class="h-20 w-auto mb-2">
+                    <h1 class = "font-bold text-3xl">Plot My Path</h1>
+                </div>
+
+                {% block content %}
+
+
+                {% endblock content %}
             </div>
-            {% block content %}
-            {% endblock content %}
+
+            
+            <div class="mx-auto [&_a]:link text-xs text-slate-400 flex flex-col md:flex-row items-center justify-center gap-3 mt-6">
+                
+            </div>
         {% endblock body %}
         {% block extra_body %}
         {% endblock extra_body %}
     </body>
+
 </html>

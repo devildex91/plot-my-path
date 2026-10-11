@@ -34,7 +34,7 @@ CLOUDINARY_URL = env("CLOUDINARY_URL")
 #splits url for security
 CLOUDINARY_CLOUD_NAME = cloudinary.config().cloud_name
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
@@ -49,12 +49,14 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_vite",
+    "allauth_ui",
+    'core',
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    "allauth.socialaccount.providers.apple",
     "allauth.socialaccount.providers.google",
-    'core',
+    'widget_tweaks',
+    "slippers",
     "accounts",
     "destinations",
     "payments",
@@ -86,6 +88,7 @@ TEMPLATES = [
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
+                "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
@@ -97,27 +100,44 @@ TEMPLATES = [
 SOCIALACCOUNT_PROVIDERS = {
     "google": {
         "APP": {"client_id": "924212257986-995qe9avfshkohh9q7hdo52pf9t60ul4.apps.googleusercontent.com", 
-                "secret": "456", 
+                "secret": GOOGLE_KEY, 
                 "key": ""},
                 'SCOPE': ['profile','email',],
                 'AUTH_PARAMS': {'access_type': 'online'},
                 'METHOD': 'oath2',
                 'VERIFIED_EMAIL': True, 
     },
-    "apple": {
-        "APP": {"client_id": "123", 
-                        "secret": "456", 
-                        "key": ""},
-                        'SCOPE': ['profile','email',],
-                        'AUTH_PARAMS': {'access_type': 'online'},
-                        'METHOD': 'oath2',
-                        'VERIFIED_EMAIL': True, 
-    }
 }
 
 AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
+
+LOGIN_URL = '/accounts/login/'
+
+LOGIN_REDIRECT_URL = '/home/'
+
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+
+ACCOUNT_LOGIN_METHODS = {'email'}
+
+ACCOUNT_SESSION_REMEMBER = False
+
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
+
+ACCOUNT_SIGNUP_FORM_CLASS = 'core.forms.CustomSignupForm'
+
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
+
+ALLAUTH_UI_THEME = "fantasy"
+
+#ACCOUNT_SIGNUP_FORM_CLASS = 'core.forms.CustomSignupForm'
+
+ACCOUNT_UNIQUE_EMAIL = True
+
+SLIPPERS_COMPONENTS = {
+    "button": "components/button.html",
+}
 
 WSGI_APPLICATION = "config.wsgi.application"
 
@@ -167,7 +187,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]

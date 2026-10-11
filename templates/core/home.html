@@ -2,10 +2,16 @@
 {% load static %}
 
 {% block header %}
- <span class = "flex flex-row">
-    <img src = "{% static 'images/pmp-logo.png' %}" alt="Logo" class="w-12 h-12">
-    <h1 class = "title"> Plot My Path </h1>
-</span>
+<div class = "flex flex-row"><h1 class = "title text-4xl mt-10 ml-4"> {{greeting}}, {{user.first_name}} </h1></div>
+{% if messages %}
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+
+{% endif %}
+    
+
+
 {% endblock %}
 
 {% block content %}

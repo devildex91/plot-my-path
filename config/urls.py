@@ -17,11 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
-from django.views.generic import TemplateView
+
+from core.views import CustomSignUpView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("homepage/", TemplateView.as_view(template_name="base.html")),
+    path('accounts/signup/', CustomSignUpView.as_view(), name='account_signup'),
     path("accounts/", include("allauth.urls")),
     path("", include("core.urls")),
     path("destination/", include("destinations.urls")),
