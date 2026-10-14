@@ -1,7 +1,8 @@
 import { createRoot } from 'react-dom/client';
 import Onboarding from './components/onboarding.jsx';
+import SearchBar from './components/searchBar.jsx';
 const rootElement = document.getElementById('onboarding');
-
+const searchRoot = document.getElementById('searchDiv');
 if (rootElement) {
     const homeUrl = rootElement.getAttribute('data-home-url')
     const landingUrl = rootElement.getAttribute('data-landing-url')
@@ -9,4 +10,9 @@ if (rootElement) {
         <Onboarding homeUrl={homeUrl}
           />
     );
+}
+if (searchRoot) {
+    createRoot(searchRoot).render(
+    <SearchBar />
+    )
 }

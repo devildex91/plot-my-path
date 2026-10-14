@@ -37,7 +37,7 @@ class Destination(models.Model):
     average_cost_per_day = models.DecimalField(max_digits=10, decimal_places=2)
 
     objects = DestinationManager()
-    # allows me to treate images like a database field when calling without storing image in db
+    # allows me to treat images like a database field when calling without storing image in db
     @property
     def get_image_url(self):
         cloud_name = getattr(settings, 'CLOUDINARY_CLOUD_NAME', 'dxhclnrp')

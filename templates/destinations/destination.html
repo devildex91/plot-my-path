@@ -3,12 +3,36 @@
 {% block content %}
 
 <h1>Destination</h1>
-<div id="search-bar">
-<label for="destination-search" class="hidden">Filter destinations</label>
-<input type="search" id="destination-search"name="destination-search" placeholder="Search destinations...">
-</div>
-<span><button>All</button> <button>Europe </button> <button>Asia</button> <button>Americas</button> </span>
+<div id="searchDiv" class="my-4"></div>
+<form method="GET">
+    <div id="continent-choice" class="join flex flex-row justify-evenly flex-wrap">
+
+        <input
+            class="join-item btn btn-primary"
+            type="radio"
+            name="continent"
+            value="all"
+            aria-label="All"
+            onchange="this.form.submit()"
+            {% if selected_continent == 'all' %}checked{% endif %}
+        />
+
+        {% for continent in continents %}
+            <input
+                class="join-item btn btn-primary"
+                type="radio"
+                name="continent"
+                value="{{ continent }}"
+                aria-label="{{ continent }}"
+                onchange="this.form.submit()"
+                {% if selected_continent == continent %}checked{% endif %}
+            />
+        {% endfor %}
+
+    </div>
+</form>
 <section>
+  <div class = "sm:grid grid-cols-2 md:grid-cols-3">
 {% for destination in destinations %}
 
 <div class="card card-side bg-base-100 shadow-sm m-2">
@@ -27,6 +51,7 @@
 </div>
 
 {% endfor %}
+</div>
 </section>
  
 
