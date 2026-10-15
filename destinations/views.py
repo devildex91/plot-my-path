@@ -68,7 +68,7 @@ def popular_destinations(request):
     """
     returns a random order of destinations then returns the first two to display on the main page
     """
-    destinations = Destination.objects.order_by("?")[:2]
+    destinations = Destination.objects.order_by("?")[:3]
 
     results_data = [
         {

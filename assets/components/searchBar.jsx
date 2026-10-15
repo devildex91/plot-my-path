@@ -31,8 +31,8 @@ const [isLoading, setIsLoading]= useState(false);
   }, [query]);
 
   return (
-    <div className="search-container">
-      <label className="input">
+    <div className="search-container input-primary">
+      <label className="input text-primary">
   <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <g
       strokeLinejoin="round"
@@ -46,7 +46,7 @@ const [isLoading, setIsLoading]= useState(false);
     </g>
   </svg>
   <input type="text" 
-  className="grow" 
+  className="grow text-primary" 
   placeholder="Search Destinations..."
   value={query}
    onChange={(e) => setQuery(e.target.value)} />
