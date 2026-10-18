@@ -35,9 +35,11 @@ def destination_lists(request):
 @login_required
 def destination_detail_view(request, destination_id):
     destination = get_object_or_404(Destination, id=destination_id)
+    attractions = destination.attractions.all()
 
     return render(
-        request, "destinations/destination_detail.html", {"destination": destination}
+        request, "destinations/destination_detail.html", {"destination": destination,
+                                                           'attractions': attractions}
     )
 
 

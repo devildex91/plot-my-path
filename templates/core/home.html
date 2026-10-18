@@ -4,7 +4,7 @@
 {% block header %}
 {% if messages %}
     {% for message in messages %}
-        <p>{{ message }}</p>
+        <p class = "--color-info-content" >{{ message }}</p>
     {% endfor %}
 {% endif %}
     
@@ -15,7 +15,10 @@
   <h2 class="mt-6 text-xl font-bold text-center text-primary">
     Where would you like to go next?
   </h2>
-  <div id="searchDiv" class="my-4"></div>
+  <div 
+  id="searchDiv" 
+  data-base-url="{% url 'details' 0 %}"
+  class="my-4"></div>
 </div>
 
 {% endblock %}
@@ -43,8 +46,8 @@
     <img src="{{ destination.get_image_url }}" alt="{{ destination.name }}" class="w-full h-full object-cover">
   </figure>
   <div class="card-body p-4">
-    <h2 class="card-title text-lg">{{ destination.name }}</h2>
-    <p class="text-sm opacity-80">Average cost per day: £{{ destination.average_cost_per_day }}</p>
+    <h2 class="card-title text-lg font-extrabold text-primary">{{ destination.name }}</h2>
+    <p class="text-md text-primary font-bold opacity-80">Average cost per day: £{{ destination.average_cost_per_day }}</p>
     <div class="card-actions justify-end mt-2">
       <a href="{% url 'details' destination.id %}" class="btn btn-primary btn-sm max-w-full whitespace-normal">View Details</a>
     </div>

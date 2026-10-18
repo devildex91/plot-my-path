@@ -1,11 +1,61 @@
 {% extends 'base.html' %}
+{% load static %}
  {% block content %}
-           
-<img
-    src="{{destination.get_image_url}}"alt="{{destination.name}}">
-    <h2>{{destination.name}}</h2>
-    <p>{{destination.description}}</p>
-    <p>{{destination.average_cost_per_day}}</p>
-    <a href="{% url 'destination_lists' %}">Back to destinations</a>
-    
+          
+<div class = " h-screen flex flex-col justify-center sm: justify-start text-primary m-2 rounded-xl">
+  <h1 class = "title text-3xl font-bold text-center"> A closer look at {{destination.name}} </h1>
+<div class="card bg-base-200 w-full shadow-sm ">
+  <figure>
+        <img src="{{ destination.get_image_url }}" alt ="{{destination.name}}" class="w-full" />
+       <button onclick="history.back()" class="btn btn-primary absolute top-2 left-2">
+    ← Go Back
+</button>  
+  </figure>
+  <div class="card-body bg-base-200 rounded-b-xl">
+    <h2 class="card-title text-2xl font-bold">{{destination.name}}</h2>
+    <p class = "font-bold">{{destination.description}}</p>
+    <div class="card-actions justify-end">
+      
+    </div>
+  </div>
+</div>
+<h2 class = "text-2xl font-bold text-center p-2">{{destination.name}}s Attractions </h2>
+<div class = "grid  md:grid-cols-2 gap-2 pb-[64px] sm:pb-2">
+{% for attraction in attractions %}
+
+<div class="card bg-base-200 w-full shadow-sm">
+  <figure>
+    <img
+      src="{{attraction.get_image_url}}"
+      alt="{{attraction.name}}"
+     />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title text-2xl font-bold">{{attraction.name}}</h2>
+    <p class = "font-bold">{{attraction.description}}</p>
+    <div class="card-actions justify-end">
+      
+    </div>
+  </div>
+</div>
+{% empty %}
+<div class="card bg-base-200 shadow-sm md:col-span-2">
+  <figure>
+    <img
+      src="{% static 'images/home_img.avif' %}"
+      alt="serene beach scene" 
+      class="w-full h-auto"/>
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title text-2xl font-bold">Our apologies </h2>
+    <p class = "font-bold">We are very sorry but we have not found any attractions that meet our exacting standards right now but are striving to provide the very best for you so check back soon.</p>
+    <div class="card-actions justify-end">
+      
+    </div>
+  </div>
+</div>
+{% endfor %}
+<a href = "{% url 'organise_trip' %}" class="btn btn-primary w-full p-2 mb-2 md:col-span-2">Plan a Trip  </a>
+</div>
+</div>
      {% endblock content %}

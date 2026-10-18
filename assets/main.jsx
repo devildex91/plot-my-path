@@ -12,7 +12,8 @@ if (rootElement) {
     );
 }
 if (searchRoot) {
+    const baseUrl = searchRoot.getAttribute('data-base-url');
     createRoot(searchRoot).render(
-    <SearchBar />
+    <SearchBar baseUrl={baseUrl} />
     )
 }

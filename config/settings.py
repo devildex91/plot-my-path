@@ -34,7 +34,7 @@ CLOUDINARY_URL = env("CLOUDINARY_URL")
 #splits url for security
 CLOUDINARY_CLOUD_NAME = cloudinary.config().cloud_name
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 

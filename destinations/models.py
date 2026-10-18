@@ -72,7 +72,7 @@ class Attraction(models.Model):
         # Safely fetches just the text name from your settings configuration
         cloud_name = getattr(settings, 'CLOUDINARY_CLOUD_NAME', 'dxhclnrp')
         # TARGETS THE 'attractions' FOLDER:
-        return f"https://res.cloudinary.com{cloud_name}/image/upload/v1/{self.slug}"
+        return f"https://res.cloudinary.com/{cloud_name}/image/upload/v1/{self.slug}"
     
     def __str__(self):
         return self.name
