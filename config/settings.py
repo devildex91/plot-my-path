@@ -63,6 +63,9 @@ INSTALLED_APPS = [
     "planner",
     "trips",
     "weather",
+    "crispy_forms",
+    "crispy_daisyui",
+    "formtools",
     
 ]
 
@@ -78,6 +81,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "config.urls"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'daisyui'
+CRISPY_TEMPLATE_PACK = 'daisyui'
 
 TEMPLATES = [
     {

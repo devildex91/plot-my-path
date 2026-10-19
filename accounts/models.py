@@ -1,3 +1,5 @@
+from typing import ClassVar
+
 from django.conf import settings
 from django.db import models
 
@@ -6,9 +8,37 @@ from destinations.models import Destination
 # Create your models here.
 
 class TravelPreference(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    travel_style = models.CharField(max_length=100)
-    budget_level = models.CharField(max_length=50)
+
+    TRAVEL_STYLE_CHOICES: ClassVar[list[tuple[str, str]]] = [
+    ("adventure", "Adventure"),
+    ("relaxation", "Relaxation"),
+    ("city_break", "City Break"),
+    ("culture", "Culture"),
+    ("foodie", "Food & Drink"),
+    ("nature", "Nature"),
+]
+
+    BUDGET_LEVEL_CHOICES: ClassVar[list[tuple[str, str]]] = [
+    ("budget", "Budget"),
+    ("mid_range", "Mid Range"),
+    ("luxury", "Luxury"),
+]
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+
+    travel_style = models.CharField(
+        max_length=50,
+        choices=TRAVEL_STYLE_CHOICES
+    )
+
+    budget_level = models.CharField(
+        max_length=20,
+        choices=BUDGET_LEVEL_CHOICES
+    )
+
     walking_preference = models.BooleanField(default=False)
     culture = models.BooleanField(default=False)
     food = models.BooleanField(default=False)

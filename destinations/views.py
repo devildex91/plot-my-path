@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
-import random
-from .models import Attraction, Destination, Country
+
+from .models import Country, Destination
 
 
 # Create your views here.
@@ -22,14 +22,14 @@ def destination_lists(request):
     if continent != "all":
         destinations = destinations.filter(country__continent__iexact=continent)
     return render(
-    request,
-    'destinations/destination.html',
-    {
-        'destinations': destinations,
-        'selected_continent': continent,
-        'continents': continents,
-    },
-)
+        request,
+        "destinations/destination.html",
+        {
+            "destinations": destinations,
+            "selected_continent": continent,
+            "continents": continents,
+        },
+    )
 
 
 @login_required
@@ -38,8 +38,9 @@ def destination_detail_view(request, destination_id):
     attractions = destination.attractions.all()
 
     return render(
-        request, "destinations/destination_detail.html", {"destination": destination,
-                                                           'attractions': attractions}
+        request,
+        "destinations/destination_detail.html",
+        {"destination": destination, "attractions": attractions},
     )
 
 
@@ -85,9 +86,3 @@ def popular_destinations(request):
     ]
 
     return JsonResponse({"results": results_data})
-
-
-@login_required
-def organise_trip(request):
-
-    return render(request, "destinations/trips.html")

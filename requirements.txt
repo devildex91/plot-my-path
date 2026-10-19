@@ -5,11 +5,15 @@ cffi==2.1.1
 charset-normalizer==3.5.1
 click==8.5.0
 cloudinary==1.46.3
+crispy-daisyui==0.13.0
 cryptography==50.0.1
 distlib==0.4.3
 Django==6.1.1
 django-allauth==65.19.4
 django-allauth-ui==1.8.1
+django-crispy-forms==2.7
+django-environ==0.14.0
+django-formtools==2.7
 django-vite==3.2.0
 django-widget-tweaks==1.5.1
 filelock==3.29.3
