@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1>{{trip.name}}</h1>
+<h2>Destination:{{trip.destination}}</h2>
+<p>{{trip.start_date}}-{{trip.end_date}}</p>
+<div id = "builder"></div>
+<!--Data converted into json format so react component can read data correctly  -->
+{{ app_data|json_script:"app-data" }}
+
+{% endblock %}

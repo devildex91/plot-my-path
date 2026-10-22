@@ -1,32 +1,160 @@
-{% extends 'base.html' %}
- {% load daisyui_filters %}
- {% load crispy_forms_tags %}
- {{form|crispy}}
-{% load i18n %}
+{% extends 'base.html' %} 
+{% load daisyui_filters %} 
+{% load crispy_forms_tags %} 
+{% load i18n %} 
 
-{% block head %}
-  {{ wizard.form.media }}
-{% endblock %}
+{% block head %} 
+{{ wizard.form.media }} 
+{% endblock %} 
 
 {% block content %}
-  <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
-  <form action="" method="post">
-    {% csrf_token %}
-    <table>
-      {{ wizard.management_form }}
-      {% if wizard.form.forms %}
-        {{ wizard.form.management_form }}
-        {% for form in wizard.form.forms %}
-          {{ form.crispy }}
-        {% endfor %}
-      {% else %}
-        {{ wizard.form|crispy }}
-      {% endif %}
-    </table>
-    {% if wizard.steps.prev %}
-      <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate 'first step' %}</button>
-      <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% translate 'prev step' %}</button>
-    {% endif %}
-    <input type="submit" value="{% translate 'submit' %}" />
-  </form>
+<div class="min-h-screen bg-slate-50/50 py-12 px-4 font-sans">
+  
+  <!-- Steps Tracker -->
+  <div class="w-full max-w-md mx-auto mb-8">
+    <ul class="steps w-full text-xs font-medium text-slate-400">
+      {% for step in wizard.steps.all %}
+        <li class="step {% if forloop.counter <= wizard.steps.step1 %}step-primary text-indigo-600 font-semibold{% endif %}">
+          Step {{ forloop.counter }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Form Container Card -->
+  <div class="w-full max-w-md bg-white rounded-3xl shadow-xl shadow-slate-100 mx-auto border border-slate-100 overflow-hidden">
+    <div class="p-8">
+      
+      <form action="" method="post" class="space-y-5">
+        {% csrf_token %} 
+        
+        <!-- Management forms required for the Form Wizard to function -->
+        {{ wizard.management_form }} 
+        {% if wizard.form.forms %} 
+          {{ wizard.form.management_form }} 
+        {% endif %}
+
+        <!-- FIELD AND LABEL RENDERING LOOP -->
+        <div class="space-y-4">
+          {% if wizard.form.forms %}
+            <!-- Formset Loop (Multiple Forms) -->
+            {% for form in wizard.form.forms %}
+              {% for field in form %}
+                <div class="form-control w-full">
+                  <label class="label pt-0 pb-1">
+                    <span class="label-text text-xs font-semibold text-slate-500 uppercase tracking-wide">
+                      {% if field.name == 'username' %}
+                        {% translate 'Your Unique Username' %}
+                      {% else %}
+                        {{ field.label }}
+                      {% endif %}
+                    </span>
+                  </label>
+                  {{ field|as_crispy_field }}
+                </div>
+              {% endfor %}
+            {% endfor %}
+            
+          {% else %}
+           <!-- Standard Single Form Loop -->
+            
+            {% for field in wizard.form %}
+              <div class="form-control w-full">
+              
+                
+                <!-- 1. Custom Grid Choice Picker for Travel Style -->
+                {% if field.name == 'travel_style' %}
+                  <label class="label pt-0 pb-2">
+                    <span class="label-text text-xs font-semibold text-slate-500 uppercase tracking-wide">
+                      {% translate 'What kind of trip are you planning?' %}
+                    </span>
+                  </label>
+
+                  <div class="grid grid-cols-2 gap-3">
+                    {% for choice_value, choice_label in field.field.choices %}
+                      <label for="id_{{ field.name }}_{{ forloop.counter }}" 
+                             class="flex items-center justify-between p-4 border border-slate-200 rounded-2xl cursor-pointer hover:bg-slate-50 transition bg-white has-[:checked]:border-indigo-600 has-[:checked]:bg-indigo-50/30">
+                        <span class="text-sm font-medium text-slate-700">{{ choice_label }}</span>
+                        
+                        <input type="radio" 
+                               name="{{ wizard.form.prefix }}-{{ field.name }}" 
+                               value="{{ choice_value }}" 
+                               id="id_{{ field.name }}_{{ forloop.counter }}"
+                               class="sr-only" 
+                               {% if field.value|stringformat:"s" == choice_value|stringformat:"s" %}checked{% endif %}>
+                      </label>
+                    {% endfor %}
+                  </div>
+                  
+                  {% if field.errors %}
+                    <span class="text-error text-xs mt-1 font-medium">{{ field.errors.as_text }}</span>
+                  {% endif %}
+
+                <!-- 2. Standard Form Field Rendering Logic -->
+                {% else %}
+                  
+                  <!-- HIDE INDIVIDUAL TITLES FOR TOGGLES & INJECT SINGLE GROUP HEADER AT THE TOP -->
+                  {% if field.name == 'walking_preference' or field.name == 'family_friendly' or field.name == 'solo_friendly' or field.name == 'include_weather' or field.name == 'culture' or field.name == 'food' or field.name == 'nature' or field.name == 'history' or field.name == 'nightlife' or field.name == 'solo travel'%}
+                    
+                    <!-- If this is the walking preference field, render the section title directly above it -->
+                    {% if field.name == 'walking_preference' %}
+                      <div class="pt-4 pb-2 mt-2 border-t border-slate-100 flex items-center gap-2 text-slate-400">
+                        <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                        </svg>
+                        <span class="text-xs font-bold uppercase tracking-wide text-slate-500">
+                          {% translate 'Additional Preferences' %}
+                        </span>
+                      </div>
+                    {% endif %}
+
+                    <!-- Render the toggle field directly without its default top layout label wrapper -->
+                    <div class="py-1">
+                      {{ field|as_crispy_field }}
+                    </div>
+
+                  {% else %}
+                    <!-- RENDER ALL STANDARD FIELDS (EMAIL, PASSWORD, ETC) NATIVELY -->
+                    <label class="label pt-0 pb-1">
+                      <span class="label-text text-xs font-semibold text-slate-500 uppercase tracking-wide">
+                        {% if field.name == 'email' %}
+                          {% translate 'Email Address' %}
+                        {% elif field.name == 'password' %}
+                          {% translate 'Choose Password' %}
+                        {% else %}
+                          {{ field.label }}
+                        {% endif %}
+                      </span>
+                    </label>
+                    {{ field|as_crispy_field }}
+                  {% endif %}
+
+                {% endif %}
+
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        <!-- Action Navigation Buttons -->
+        <div class="flex flex-col gap-3 mt-8 pt-4 border-t border-slate-100">
+          <button type="submit" class="btn btn-primary bg-indigo-600 hover:bg-indigo-700 border-none text-white rounded-xl w-full normal-case font-semibold py-3 shadow-md shadow-indigo-100">
+            {% if wizard.steps.current == wizard.steps.last %}
+              {% translate 'Finish Setup' %}
+            {% else %}
+              {% translate 'Next' %}
+            {% endif %}
+          </button>
+
+          {% if wizard.steps.prev %} 
+            <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}" class="btn btn-ghost text-slate-400 hover:text-slate-600 normal-case btn-sm w-full font-medium">
+              {% translate 'Go Back' %}
+            </button> 
+          {% endif %}
+        </div>
+      </form> 
+
+    </div>
+  </div>
+</div>
 {% endblock %}
