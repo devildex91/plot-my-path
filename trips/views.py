@@ -170,3 +170,12 @@ def itinerary_builder(request, trip_id):
 
         },
     )
+
+@login_required
+def my_trips(request):
+    trips = (
+        request.user.trips
+        .select_related("destination")
+        .order_by("-start_date")
+    )
+    return render (request,'trips/my_trips.html', {"trips": trips})

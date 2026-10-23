@@ -2,6 +2,7 @@ from typing import ClassVar
 
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 
 from destinations.models import Attraction, Destination
 
@@ -18,6 +19,9 @@ class Trip(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def get_absolute_url(self):
+        return reverse("trips:trip_detail", kwargs={"pk": self.pk})
+    
     def __str__(self):
         return self.name
 
