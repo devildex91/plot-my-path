@@ -5,7 +5,9 @@ from allauth.account.views import SignupView
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+
 from destinations.models import Destination
+
 
 class CustomSignUpView(SignupView):
     def form_valid(self, form):

@@ -1,9 +1,13 @@
+import json
 from datetime import timedelta
+from json import JSONDecodeError
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import transaction
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.views.decorators.http import require_POST
 from formtools.wizard.views import SessionWizardView
 
 from accounts.models import TravelPreference
@@ -15,7 +19,7 @@ from .forms import (
     ReviewForm,
     TripDetailsWizardForm,
 )
-from .models import Trip, TripDay
+from .models import PlannedActivity, Trip, TripDay
 
 FORMS = [
     ("preferences", PreferenceWizardForm),
@@ -35,7 +39,7 @@ class CreateTripView(LoginRequiredMixin, SessionWizardView):
         destination_form = form_list[1]
         details_form = form_list[2]
 
-        preference, created = TravelPreference.objects.get_or_create(
+        preference = TravelPreference.objects.get_or_create(
             user=self.request.user
         )
 
@@ -179,3 +183,82 @@ def my_trips(request):
         .order_by("-start_date")
     )
     return render (request,'trips/my_trips.html', {"trips": trips})
+
+@login_required
+def trip_detail_view(request, trip_id):
+    trip = get_object_or_404(
+        Trip.objects.select_related("destination").prefetch_related(
+            "trip_days__planned_activities__attraction"
+        ),
+        id=trip_id,
+        user=request.user,
+    )
+    return render(request, "trips/trip_detail.html", {"trip": trip})
+
+
+@login_required
+@require_POST
+@transaction.atomic
+def add_activity(request, trip_id, day_id):
+    try:
+       
+        trip = get_object_or_404(Trip, id=trip_id, user=request.user)
+        day = get_object_or_404(TripDay, id=day_id, trip=trip)
+
+        
+        if not request.body:
+            return JsonResponse({"error": "Empty request body."}, status=400)
+
+        try:
+            data = json.loads(request.body.decode("utf-8"))
+        except JSONDecodeError:
+            return JsonResponse({"error": "Invalid JSON format."}, status=400)
+
+        attraction_id = data.get("attraction_id")
+        start_time = data.get("start_time")
+        end_time = data.get("end_time")
+
+        if attraction_id is None or not start_time or not end_time:
+            return JsonResponse(
+                {"error": "Missing attraction_id, start_time, or end_time."},
+                status=400,
+            )
+
+        
+        attraction = get_object_or_404(
+            Attraction,
+            id=attraction_id,
+            destination=trip.destination,
+        )
+
+        if start_time >= end_time:
+            return JsonResponse({"error": "End time must be after start time."}, status=400)
+
+        order = day.planned_activities.count() + 1
+
+        activity = PlannedActivity.objects.create(
+            trip_day=day,
+            attraction=attraction,
+            start_time=start_time,
+            end_time=end_time,
+            order=order,
+            status="scheduled",
+        )
+
+        return JsonResponse(
+            {
+                "activity": {
+                    "id": activity.id,
+                    "attraction_id": activity.attraction_id,
+                    "start_time": activity.start_time.isoformat(),
+                    "end_time": activity.end_time.isoformat(),
+                    "order": activity.order,
+                    "notes": activity.notes,
+                    "status": activity.status,
+                }
+            },
+            status=201,
+        )
+    except Exception as e:
+        
+        return JsonResponse({"error": str(e)}, status=500)

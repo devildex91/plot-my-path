@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class = "h-screen flex flex-col justify-center sm: justify-start text-primary m-2 rounded-xl" >
+<div class="card bg-base-200 w-full shadow-sm">
+  <figure>
+    <img src= "{{trip.destination.get_image_url}}" alt ="{{trip.destination}}" class = "w-full"/>
+     <button onclick="history.back()" class="btn btn-primary absolute top-2 left-2">    ← Go Back
+     </button>
+  </figure>
+  <div class="card-body">
+<h1>{{ trip.name }}</h1>
+<p>{{ trip.destination }} · {{ trip.start_date }} → {{ trip.end_date }}</p>
+<p>Budget: {{ trip.budget }} · Status: {{ trip.status }}</p>
+<a href="{% url 'itinerary_builder' trip.id %}">Edit itinerary</a>
+<ul>
+  {% for day in trip.trip_days.all %}
+    <li>Day {{ day.day_number }} ({{ day.date }})
+      <ul>
+        {% for a in day.planned_activities.all %}
+          <li>{{ a.start_time }}–{{ a.end_time }} {{ a.attraction.name }}</li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</ul>
+  </div>
+</div>
+</div>
+{% endblock %}
