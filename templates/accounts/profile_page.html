@@ -1,7 +1,32 @@
 {% extends 'base.html' %}
+{% block header %}
+<div class = " flex flex-row place-content-center">
+   <i class="fa-solid fa-circle-user place-content-center w-xl"></i> 
+   <div class = " flex flex-col place-content-center"><h1>{{request.user.first_name}} {{request.user.last_name}}</h1>
+<h2>{{request.user.email}}</h2></div>
+    </div>
+{% endblock %}
  {% block content %}
-<button onclick="history.back()" class="btn btn-primary absolute top-2 left-2">
-    ← Go Back
-</button>  
-<h1>Profile Page</h1>
+ <div class = "flex flex-col place-content-center text-center mt-10">
+<a href = "{% url 'my_trips' %}" class = "p-4">My Trips</a>
+<a href = "" class = "p-4">My Details</a>
+<a href = "" class = "p-4">Payment Methods</a>
+<a href = "" class = "p-4">Premium membership</a>
+<hr>
+<a href = "" class = "p-4">Help and Support</a>
+<a href = "" class = "p-4">Settings</a>
+<hr>
+<form method="post" action="{% url 'account_logout' %}" class="shrink-0">
+    
+            {% csrf_token %}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+            <button type="submit" class="bg-red-600 hover:bg-red-700 w-full text-white p-2 m-4 rounded-lg font-medium transition cursor-pointer text-xs">
+                Log Out
+            </button>
+        </form>
+    </div>
+
+
  {% endblock %}

@@ -8,6 +8,7 @@ export default defineConfig({
   build: {
    
     outDir: path.resolve(__dirname, './static'),
+    // Keep Django-managed static files and MapLibre worker assets during builds.
     emptyOutDir: false,
     manifest: "manifest.json",
     rollupOptions: {

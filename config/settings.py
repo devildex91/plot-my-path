@@ -16,7 +16,6 @@ from pathlib import Path
 import cloudinary
 import environ
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
@@ -29,10 +28,10 @@ env.read_env(os.path.join(BASE_DIR, ".env"))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 GOOGLE_KEY = env("GOOGLE_KEY")
-APPLE_KEY = env("APPLE_KEY")
 CLOUDINARY_URL = env("CLOUDINARY_URL")
-#splits url for security
+WEATHER_API_KEY = env("WEATHER_API_KEY")
 CLOUDINARY_CLOUD_NAME = cloudinary.config().cloud_name
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -62,7 +61,6 @@ INSTALLED_APPS = [
     "payments",
     "planner",
     "trips",
-    "weather",
     "crispy_forms",
     "crispy_daisyui",
     "formtools",
@@ -207,3 +205,4 @@ MAILERS = {
         "BACKEND": "django.core.mail.backends.console.EmailBackend",
     },
 }
+

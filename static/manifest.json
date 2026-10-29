@@ -1,8 +1,48 @@
 {
+  "_rolldown-runtime-BrVfq_k5.js": {
+    "file": "assets/rolldown-runtime-BrVfq_k5.js",
+    "name": "rolldown-runtime"
+  },
   "assets/js/index.js": {
     "file": "js/index-bundle.js",
     "name": "index",
     "src": "assets/js/index.js",
+    "isEntry": true,
+    "imports": [
+      "_rolldown-runtime-BrVfq_k5.js"
+    ]
+  },
+  "assets/main.jsx": {
+    "file": "js/app-bundle.js",
+    "name": "app",
+    "src": "assets/main.jsx",
+    "isEntry": true,
+    "imports": [
+      "_rolldown-runtime-BrVfq_k5.js"
+    ],
+    "dynamicImports": [
+      "node_modules/@tomtom-org/maps-sdk/map/dist/chunks/maplibre-gl-DudBHU-O.js"
+    ],
+    "assets": [
+      "assets/maplibre-gl-worker-DeF4u0kt.js"
+    ]
+  },
+  "assets/styles/style.css": {
+    "file": "css/style.css",
+    "name": "style",
+    "names": [
+      "style.css"
+    ],
+    "src": "assets/styles/style.css",
     "isEntry": true
+  },
+  "node_modules/@tomtom-org/maps-sdk/map/dist/chunks/maplibre-gl-DudBHU-O.js": {
+    "file": "assets/maplibre-gl-DudBHU-O-Ca6Bsq9c.js",
+    "name": "maplibre-gl-DudBHU-O",
+    "src": "node_modules/@tomtom-org/maps-sdk/map/dist/chunks/maplibre-gl-DudBHU-O.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-BrVfq_k5.js"
+    ]
   }
 }

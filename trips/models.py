@@ -2,12 +2,14 @@ from typing import ClassVar
 
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 
 from destinations.models import Attraction, Destination
 
 # Create your models here.
 
 class Trip(models.Model):
+    """A user's trip, including its destination, dates, budget, and status."""
     user =  models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='trips')
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE, related_name='trips')
     name=models.CharField(max_length=150)
@@ -18,11 +20,15 @@ class Trip(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def get_absolute_url(self):
+        return reverse("trips:trip_detail", kwargs={"pk": self.pk})
+    
     def __str__(self):
         return self.name
 
 
 class TripDay(models.Model):
+    """One calendar day within a trip, with an ordered list of planned activities."""
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE, related_name='trip_days')
     date = models.DateField()
     day_number = models.IntegerField()
@@ -33,6 +39,7 @@ class TripDay(models.Model):
 
 
 class PlannedActivity(models.Model):
+    """An attraction scheduled for a trip day with a time and display order."""
     trip_day = models.ForeignKey(TripDay, on_delete=models.CASCADE, related_name='planned_activities')
     attraction = models.ForeignKey(Attraction, on_delete=models.CASCADE, related_name='planned_activities')
     start_time = models.TimeField(auto_now=False, auto_now_add=False)
@@ -46,4 +53,3 @@ class PlannedActivity(models.Model):
 
     def __str__(self):
         return f"{self.attraction.name} ({self.start_time})"
-

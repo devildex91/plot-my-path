@@ -5,10 +5,13 @@ from allauth.account.views import SignupView
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+
 from destinations.models import Destination
+
 
 class CustomSignUpView(SignupView):
     def form_valid(self, form):
+        """Show the appropriate confirmation after allauth accepts the signup."""
         response = super().form_valid(form)
 
         if app_settings.EMAIL_VERIFICATION == app_settings.EmailVerificationMethod.MANDATORY:
@@ -25,13 +28,16 @@ class CustomSignUpView(SignupView):
 
 
 def landing_page_view(request):
+    """Render the public landing page."""
     return render(request, 'core/landing_page.html',)
 
 def onboarding_page_view(request):
+    """Render the introductory onboarding carousel."""
     return render(request, 'core/onboarding.html',)
 
 @login_required
 def homepage_view(request):
+    """Show a time-appropriate greeting and a small set of featured destinations."""
     hour = datetime.now().hour
 
     if hour < 12:

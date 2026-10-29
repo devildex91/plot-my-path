@@ -36,7 +36,7 @@
         <a href="/home" class="text-xl text-primary hover:text-secondary transition-colors" aria-label="Home">
             <i class="fa-solid fa-house"></i>
         </a>
-        <a href= "{% url 'organise_trip' %}" class="text-xl text-primary hover:text-secondary transition-colors" aria-label="Trips">
+        <a href= "{% url 'my_trips' %}" class="text-xl text-primary hover:text-secondary transition-colors" aria-label="Trips">
             <i class="fa-solid fa-briefcase primary"></i>
         </a>
         <a href="{% url 'destination_lists' %}" class="text-xl text-primary hover:text-secondary transition-colors" aria-label="Explore">
@@ -46,15 +46,7 @@
             <i class="fa-solid fa-user"></i>
         </a>
 
-        <form method="post" action="{% url 'account_logout' %}" class="shrink-0">
-            {% csrf_token %}
-            {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-            {% endif %}
-            <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-2 py-2 rounded-lg font-medium transition cursor-pointer text-xs">
-                Log Out
-            </button>
-        </form>
+        
     </div>
 </nav>
 

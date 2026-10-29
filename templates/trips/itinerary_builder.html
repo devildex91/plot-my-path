@@ -2,11 +2,15 @@
 
 
 {% block content %}
-<h1>{{trip.name}}</h1>
-<h2>Destination:{{trip.destination}}</h2>
-<p>{{trip.start_date}}-{{trip.end_date}}</p>
+<h1 class = "text-2xl font-extrabold">{{trip.name}}</h1>
+<p class="text-xl font-bold" >{{trip.start_date}}-{{trip.end_date}}</p>          
+<p>Total Budget: {{ trip.budget }}</p>
+<button onclick="history.back()" class="btn btn-primary">
+    ← Back to my trips
+</button>
+{# React mounts here; json_script safely exposes Django's serialized itinerary data. #}
 <div id = "builder"></div>
-<!--Data converted into json format so react component can read data correctly  -->
+
 {{ app_data|json_script:"app-data" }}
 
 {% endblock %}

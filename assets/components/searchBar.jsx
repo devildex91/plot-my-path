@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from "react";
 
+/** Search destinations as the user types and link each result to its detail page. */
 function SearchBar({ onSearch, baseUrl }) {
 const [query, setQuery] = useState('');
 const [results, setResults] = useState([]);
@@ -13,6 +14,7 @@ const [isLoading, setIsLoading]= useState(false);
     }
 
    
+    // Debounce requests so each keystroke does not trigger a separate search.
     const delayDebounceFn = setTimeout(async () => {
       setIsLoading(true);
       try {

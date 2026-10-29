@@ -7,7 +7,7 @@ from trips.models import Trip
 
 
 class Recommendation(models.Model):
-   
+    """Store a scored attraction recommendation and why it was suggested."""
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='recommendations')
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE, related_name='recommendations')
     attraction = models.ForeignKey(Attraction, on_delete=models.CASCADE, related_name='recommendations')

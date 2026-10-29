@@ -1,22 +1,23 @@
 from django.conf import settings
 from django.db import models
 
-# Create your models here.
 
-#custom manager to fix foreign key error when loading initial data into database
 class CountryManager(models.Manager):
     def get_by_natural_key(self,name):
+        """Resolve fixture natural keys using the country's unique name."""
         return self.get(name=name)
 
 
 class Country(models.Model):
+    """Represent a country and its continent for destination browsing."""
     name = models.CharField(max_length=100)
     code = models.CharField(max_length=3, help_text="ISO country code")
     continent = models.CharField(max_length=50)
-# tells django to use manager for natural keys lookup
+
     objects = CountryManager()
- # lets django know what the natural key is
+
     def natural_key(self):
+        """Use the country name as the stable key when loading fixtures."""
         return(self.name,)
 
     def __str__(self):
@@ -24,10 +25,12 @@ class Country(models.Model):
 
 class DestinationManager(models.Manager):
     def get_by_natural_key(self, slug):
+        """Resolve destination fixtures by their unique slug."""
         return self.get(slug=slug)
 
 
 class Destination(models.Model):
+    """A travel destination with coordinates, description, and estimated daily cost."""
     country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='destinations')
     name = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
@@ -40,10 +43,12 @@ class Destination(models.Model):
     # allows me to treat images like a database field when calling without storing image in db
     @property
     def get_image_url(self):
+        """Build the Cloudinary URL without storing a separate image field."""
         cloud_name = getattr(settings, 'CLOUDINARY_CLOUD_NAME', 'dxhclnrp')
         return f"https://res.cloudinary.com/{cloud_name}/image/upload/v1/{self.slug}"
     
     def natural_key(self):
+        """Use the unique slug as the stable key when loading fixtures."""
         return (self.slug,)
      
     def __str__(self):
@@ -51,6 +56,7 @@ class Destination(models.Model):
 
 
 class Attraction(models.Model):
+    """A place of interest that can be shown or scheduled within a destination."""
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE, related_name='attractions')
     name = models.CharField(max_length=100)
     slug = models.SlugField()
@@ -69,14 +75,13 @@ class Attraction(models.Model):
 
     @property
     def get_image_url(self):
-        # Safely fetches just the text name from your settings configuration
+        """Build this attraction's Cloudinary image URL from its slug."""
         cloud_name = getattr(settings, 'CLOUDINARY_CLOUD_NAME', 'dxhclnrp')
-        # TARGETS THE 'attractions' FOLDER:
+        
         return f"https://res.cloudinary.com/{cloud_name}/image/upload/v1/{self.slug}"
     
     def __str__(self):
         return self.name
-
 
 
 

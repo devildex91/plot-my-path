@@ -5,6 +5,7 @@ from django.shortcuts import render
 # Create your views here.
 @login_required
 def profile_page(request):
-     return render(request, "accounts/profile_page.html",{
-          "user": request.user
-     })
+    """Render the signed-in user's profile page."""
+    return render(request, "accounts/profile_page.html", {
+        "user": request.user
+    })

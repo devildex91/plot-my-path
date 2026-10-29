@@ -3,6 +3,7 @@ import Onboarding from './components/onboarding.jsx';
 import SearchBar from './components/searchBar.jsx';
 import ItineraryBuilder from './components/itinerary_builder.jsx'
 
+// Mount only the React feature present on the current Django-rendered page.
 const rootElement = document.getElementById('onboarding');
 const searchRoot = document.getElementById('searchDiv');
 const builder = document.getElementById('builder')
@@ -29,8 +30,8 @@ if (searchRoot) {
 
 
 if (builder) {
-    const { trip, preferences, days, attractions } = JSON.parse(dataElement.textContent);
+    const { trip, preferences, days, attractions, weather, weather_error: weatherError } = JSON.parse(dataElement.textContent);
     createRoot(builder).render(
-        <ItineraryBuilder trip={trip} preferences = {preferences} days={days} attractions={attractions}/>
+        <ItineraryBuilder trip={trip} preferences = {preferences} days={days} attractions={attractions} weather={weather} weatherError={weatherError} />
     )
 }

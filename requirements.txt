@@ -17,6 +17,7 @@ django-formtools==2.7
 django-vite==3.2.0
 django-widget-tweaks==1.5.1
 filelock==3.29.3
+gunicorn==26.2.0
 idna==3.20
 mypy_extensions==1.1.0
 oauthlib==3.3.1

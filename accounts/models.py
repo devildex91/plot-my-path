@@ -8,6 +8,7 @@ from destinations.models import Destination
 # Create your models here.
 
 class TravelPreference(models.Model):
+    """Store the travel style, budget, and interests used to personalize trips."""
 
     TRAVEL_STYLE_CHOICES: ClassVar[list[tuple[str, str]]] = [
     ("adventure", "Adventure"),
@@ -47,13 +48,13 @@ class TravelPreference(models.Model):
     nightlife = models.BooleanField(default=False)
     family_friendly = models.BooleanField(default=False)
     solo_travel = models.BooleanField(default=False)
-    include_weather = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Preferences for {self.user.username}"
 
 
 class SavedDestination(models.Model):
+    """Associate a user with a destination they have saved for later."""
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='saved_destinations')
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE, related_name='saved_by_users')
     created_at = models.DateTimeField(auto_now_add=True)

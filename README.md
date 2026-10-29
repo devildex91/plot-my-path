@@ -85,7 +85,6 @@ The business goals are
 - As a traveler, I want to build and organise an itinerary for my trip, so that I can plan what I will do each day.
 - As a traveler, I want the application to generate itinerary recommendations based on my preferences, so that I can spend less time manually researching and organizing my trip.
 - As a traveler, I want the application to identify problems with my itinerary, so that I can create a realistic travel plan.
-- As a traveler, I want to see relevant weather information for my destination and travel dates, so that I can make better decisions about my itinerary.
 - As a registered user, I want to securely access my account and manage my premium features, so that my trips and personal information are protected.
 - As a traveler, I want to purchase premium functionality securely, so that I can access additional travel-planning features.
 
@@ -233,3 +232,5 @@ Plot My Paths features will include:
 #### dependencies 
 ---
 [back to top](#plot-my-path)
+
+chat gpt used to help find right ids and fields to style for wizard forms and login/signup forms

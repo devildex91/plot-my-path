@@ -8,7 +8,7 @@ from .models import Country, Destination
 # Create your views here.
 @login_required
 def destination_lists(request):
-
+    """Render destinations, optionally filtered by the selected continent."""
     continents = (
         Country.objects.values_list("continent", flat=True)
         .distinct()
@@ -34,6 +34,7 @@ def destination_lists(request):
 
 @login_required
 def destination_detail_view(request, destination_id):
+    """Render one destination and its related attractions."""
     destination = get_object_or_404(Destination, id=destination_id)
     attractions = destination.attractions.all()
 
@@ -45,6 +46,7 @@ def destination_detail_view(request, destination_id):
 
 
 def search_destinations(request):
+    """Return up to ten destination matches for the frontend search box."""
     query = request.GET.get("q", "").strip()
 
     if not query:
@@ -68,9 +70,7 @@ def search_destinations(request):
 
 @login_required
 def popular_destinations(request):
-    """
-    returns a random order of destinations then returns the first two to display on the main page
-    """
+    """Return a small random selection of destinations for the homepage."""
     destinations = Destination.objects.order_by("?")[:3]
 
     results_data = [

@@ -7,6 +7,7 @@ from .models import Trip
 
 
 class PreferenceWizardForm(forms.ModelForm):
+    """Capture travel preferences as the first step of trip creation."""
     class Meta:
         model = TravelPreference
         exclude = ("user",)
@@ -21,6 +22,7 @@ class PreferenceWizardForm(forms.ModelForm):
 
 
 class DestinationWizardForm(forms.ModelForm):
+    """Capture the destination and display name for a new trip."""
     class Meta:
         model = Trip
         fields = (
@@ -30,6 +32,7 @@ class DestinationWizardForm(forms.ModelForm):
 
 
 class TripDetailsWizardForm(forms.ModelForm):
+    """Capture trip dates, budget, and status, validating the date range."""
     class Meta:
         model = Trip
         fields = (
@@ -40,11 +43,13 @@ class TripDetailsWizardForm(forms.ModelForm):
         )
 
     def __init__(self, *args, **kwargs):
+        """Use native date inputs for the trip date fields."""
         super().__init__(*args, **kwargs)
         self.fields["start_date"].widget = forms.DateInput(attrs={"type": "date"})
         self.fields["end_date"].widget = forms.DateInput(attrs={"type": "date"})
 
     def clean(self):
+        """Reject past starts and trips whose end date is not after the start."""
         cleaned_data = super().clean()
 
         start_date = cleaned_data.get("start_date")
