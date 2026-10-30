@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-lg mx-auto my-8">
+  <h1 class="text-2xl font-bold mb-4">Contact us</h1>
+
+  {% for message in messages %}
+    <div class="alert alert-success mb-4">{{ message }}</div>
+  {% endfor %}
+
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+    {% for field in form %}
+      <label class="form-control w-full">
+        <span class="label-text mb-1">{{ field.label }}</span>
+        {{ field }}
+        {% for error in field.errors %}
+          <span class="text-error text-sm">{{ error }}</span>
+        {% endfor %}
+      </label>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Send</button>
+  </form>
+</div>
+{% endblock %}

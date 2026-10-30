@@ -13,12 +13,22 @@
     <title>
         {% block title %}Plot My Path{% endblock %}
     </title>
+    <script>
+  (function () {
+    const saved = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.setAttribute(
+      "data-theme",
+      saved || (prefersDark ? "sunset" : "fantasy")
+    );
+  })();
+</script>
 
     {% vite_asset 'assets/styles/style.css' %}
 </head>
 
 
-<body class="min-h-screen bg-base-100 flex flex-col max-w-full overflow-x-hidden">
+<body class=" min-h-screen bg-base-100 flex flex-col max-w-full overflow-x-hidden">
 
     <header class = "sm:pt-[65px]">
        {% block header %}
@@ -34,17 +44,18 @@
 <nav class="navbar bg-base-100 shadow-sm mt-auto border-t border-base-200 w-full box-border h-[65px] fixed bottom-0 left-0 sm:top-0 sm:bottom-auto border-t-2 border-primary sm:border-t-0 sm:border-b-2 ">
     <div class="flex justify-around items-center py-2 w-full min-w-0 gap-1 primary">
         <a href="/home" class="text-xl text-primary hover:text-secondary transition-colors" aria-label="Home">
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-house"></i><p class="text-xs">Home</p>
         </a>
         <a href= "{% url 'my_trips' %}" class="text-xl text-primary hover:text-secondary transition-colors" aria-label="Trips">
-            <i class="fa-solid fa-briefcase primary"></i>
+            <i class="fa-solid fa-briefcase primary"></i><p class="text-xs">Trips</p>
         </a>
         <a href="{% url 'destination_lists' %}" class="text-xl text-primary hover:text-secondary transition-colors" aria-label="Explore">
-            <i class="fa-solid fa-compass"></i>
+            <i class="fa-solid fa-compass"></i><p class="text-xs">Explore</p>
         </a>
         <a href="{% url 'profile' %}" class="text-xl text-primary hover:text-secondary transition-colors" aria-label="Profile">
-            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-user"></i><p class="text-xs">Profile</p>
         </a>
+        
 
         
     </div>
@@ -52,6 +63,17 @@
 
 <footer class ="hidden sm:flex flex-row justify-center items-center"><div id = "copyright" class = " hidden sm:flex flex-col justify-center items-center"><img src="{% static 'images/pmp-logo.png' %}" alt="Logo" class="w-15 h-auto"><p class = "text-xs">Plan · Explore · Make it Happen</p><p class = "text-xs">©2026</p></div></footer>
     {% vite_asset 'assets/main.jsx' %}
+<script>
+  const toggle = document.getElementById("theme-toggle");
+  const root = document.documentElement;
 
+  toggle.checked = root.getAttribute("data-theme") === "sunset";
+
+  toggle.addEventListener("change", () => {
+    const theme = toggle.checked ? "sunset" : "fantasy";
+    root.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  });
+</script>
 </body>
 </html>

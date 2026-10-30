@@ -66,4 +66,3 @@ class SavedDestination(models.Model):
         return f"{self.user.username} saved {self.destination.name}"
 
 
-    

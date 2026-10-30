@@ -2,11 +2,15 @@ from datetime import datetime
 
 from allauth.account import app_settings
 from allauth.account.views import SignupView
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.core.mail import EmailMessage
+from django.shortcuts import redirect, render
 
 from destinations.models import Destination
+
+from .forms import ContactForm
 
 
 class CustomSignUpView(SignupView):
@@ -61,3 +65,29 @@ def homepage_view(request):
     }
     
     return render(request, 'core/home.html', context)
+
+def contact(request):
+    """Renders a contact form for help page"""
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            EmailMessage(
+                subject=f"[Contact] {data['subject']}",
+                body=f"From: {data['name']} <{data['email']}>\n\n{data['message']}",
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                to=[settings.CONTACT_EMAIL],
+                reply_to=[data["email"]],
+            ).send()
+            messages.success(request, "Thanks, your message has been sent.")
+            return redirect("contact")
+    else:
+        initial = {}
+        if request.user.is_authenticated:
+            initial = {
+                "name": request.user.get_full_name() or request.user.username,
+                "email": request.user.email,
+            }
+        form = ContactForm(initial=initial)
+
+    return render(request, "core/contact.html", {"form": form})

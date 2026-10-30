@@ -33,7 +33,7 @@ WEATHER_API_KEY = env("WEATHER_API_KEY")
 CLOUDINARY_CLOUD_NAME = cloudinary.config().cloud_name
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
@@ -199,10 +199,12 @@ STATICFILES_DIRS = [
 DJANGO_VITE = {"default": {"dev_mode": True}}
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
-
+DEFAULT_FROM_EMAIL = "noreply@example.com"
+CONTACT_EMAIL = "you@example.com"
 MAILERS = {
     "default": {
         "BACKEND": "django.core.mail.backends.console.EmailBackend",
     },
+    
 }
 
