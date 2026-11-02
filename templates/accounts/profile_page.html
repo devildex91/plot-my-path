@@ -21,7 +21,7 @@
 {% endif %}
 <a href="{% url 'socialaccount_connections' %}" class = "p-4 text-primary">Connected accounts</a>
 <a href = "" class = "p-4 text-primary">Payment Methods</a>
-<a href = "" class = "p-4 text-primary">Premium membership</a>
+<a href = "{% url "checkout" %}" class = "p-4 text-primary">Premium membership</a>
 <hr>
 <a href = "{% url 'contact' %}" class = "p-4 text-primary">Help and Support</a>
 <span class = "text-primary">

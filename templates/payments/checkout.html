@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h3>Confirm your Membership payment</h3>
+<p>You are about to upgrade to a premium Membership costing:</p>
+<h4>{{ m }}</h4>
+
+<button
+  type="button"
+  id="checkout-button"
+  class="btn btn-primary"
+  data-url="{% url 'create_checkout_session' %}"
+  data-csrf="{{ csrf_token }}">
+  Proceed to payment
+</button>
+{% endblock content %}

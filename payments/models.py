@@ -1,10 +1,11 @@
 from typing import ClassVar
 
-from django.db import models
 from django.conf import settings
+from django.db import models
 
 
 class Payment(models.Model):
+    """A record of a user's payment, including its Stripe transaction ID."""
 
     STATUS_CHOICES: ClassVar[tuple[tuple[str, str], ...]] = (
         ('pending', 'Pending'),
@@ -26,6 +27,7 @@ class Payment(models.Model):
         blank=True
     )
 
+    # Stripe reports payment amounts in the currency's smallest unit (for GBP, pence).
     amount = models.PositiveIntegerField()
 
     currency = models.CharField(
@@ -44,8 +46,14 @@ class Payment(models.Model):
     def __str__(self):
         return f"{self.user} - {self.amount} {self.currency}"
 
+    @property
+    def amount_pounds(self):
+        """Return the stored amount in pounds, assuming it is denominated in pence."""
+        return self.amount / 100
+
 
 class PremiumMembership(models.Model):
+    """A user's premium access state and its associated payment, if available."""
 
     STATUS_CHOICES: ClassVar[tuple[tuple[str, str], ...]] = (
         ('active', 'Active'),
@@ -59,7 +67,7 @@ class PremiumMembership(models.Model):
     settings.AUTH_USER_MODEL,
     on_delete=models.CASCADE,
     related_name='membership'
-)   
+    )
     payment = models.OneToOneField(
         Payment,
         on_delete=models.SET_NULL,
@@ -76,7 +84,9 @@ class PremiumMembership(models.Model):
 
     stripe_customer_id = models.CharField(
         max_length=255,
-        unique=True
+        unique=True,
+        null=True,
+        blank=True,
     )
 
     started_at = models.DateTimeField(
@@ -88,3 +98,8 @@ class PremiumMembership(models.Model):
 
     def __str__(self):
         return f"{self.user} - {self.status}"
+
+    @property
+    def is_active(self):
+        """Whether the membership currently grants premium access."""
+        return self.status == "active"

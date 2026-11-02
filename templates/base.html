@@ -61,19 +61,7 @@
     </div>
 </nav>
 
-<footer class ="hidden sm:flex flex-row justify-center items-center"><div id = "copyright" class = " hidden sm:flex flex-col justify-center items-center"><img src="{% static 'images/pmp-logo.png' %}" alt="Logo" class="w-15 h-auto"><p class = "text-xs">Plan · Explore · Make it Happen</p><p class = "text-xs">©2026</p></div></footer>
-    {% vite_asset 'assets/main.jsx' %}
-<script>
-  const toggle = document.getElementById("theme-toggle");
-  const root = document.documentElement;
-
-  toggle.checked = root.getAttribute("data-theme") === "sunset";
-
-  toggle.addEventListener("change", () => {
-    const theme = toggle.checked ? "sunset" : "fantasy";
-    root.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  });
-</script>
+<footer class ="hidden sm:flex flex-row justify-center items-center"><div id = "copyright" class = " hidden sm:flex flex-col justify-center items-center"><img src="{% static 'images/pmp-logo.png' %}" alt="Logo" class="w-15 h-auto"><p class = "text-xs">Plan · Explore · Make it Happen</p><p class = "text-xs">©2026</p></div></footer> 
+{% vite_asset 'assets/main.jsx' %}
 </body>
 </html>
