@@ -11,13 +11,15 @@
     ← Go Back
 </button>  
 <button
-        type="button"
-        class="btn btn-ghost absolute top-2 right-2 favourite-btn"
-        data-url="{% url 'toggle_destination_favourite' destination.id %}"
-        aria-label="Add {{ destination.name }} to favourites"
-    >
-        <i class="fa-regular fa-heart text-3xl"></i>
-    </button>
+    type="button"
+    class="btn bg-transparent border-none absolute top-2 right-2 favourite-btn {% if is_favourite %}is-favourite{% endif %}"
+    data-url="{% url 'toggle_destination_favourite' destination.id %}"
+    data-csrf="{{ csrf_token }}"
+    aria-label="Toggle {{ destination.name }} in favourites"
+    aria-pressed="{% if is_favourite %}true{% else %}false{% endif %}"
+>
+    <i class="{% if is_favourite %}fa-solid text-red-500{% else %}fa-regular{% endif %} fa-heart text-3xl"></i>
+</button>
   </figure>
   <div class="card-body bg-base-200 rounded-b-xl">
     <h2 class="card-title text-2xl font-bold">{{destination.name}}</h2>

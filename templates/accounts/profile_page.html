@@ -20,7 +20,7 @@
   <a href="{% url 'account_set_password' %}" class = "p-4 text-primary">Set a password</a>
 {% endif %}
 <a href="{% url 'socialaccount_connections' %}" class = "p-4 text-primary">Connected accounts</a>
-<a href = "" class = "p-4 text-primary">Payment Methods</a>
+<a href = "{% url 'favourite_destinations'  %}" class = "p-4 text-primary">Saved Destinations</a>
 <a href = "{% url "checkout" %}" class = "p-4 text-primary">Premium membership</a>
 <hr>
 <a href = "{% url 'contact' %}" class = "p-4 text-primary">Help and Support</a>

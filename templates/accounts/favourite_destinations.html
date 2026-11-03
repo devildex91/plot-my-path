@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for item in saved_destinations %}
+  <div class="destination-card">
+    <h3>{{ item.destination.name }}</h3>
+    
+  </div>
+{% empty %}
+  <p>You haven't saved any destinations yet.</p>
+{% endfor %}
+
+{% endblock %}

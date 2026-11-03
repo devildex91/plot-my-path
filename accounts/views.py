@@ -37,3 +37,20 @@ def toggle_destination_favourite(request, destination_id):
     return JsonResponse({
         "is_favourite": is_favourite
     })
+
+
+@login_required
+def favourite_destinations(request):
+    saved = (
+        SavedDestination.objects
+        .filter(user=request.user)
+        .select_related("destination")
+    )
+   
+    return render(request, "accounts/favourite_destinations.html",{
+        "saved_destinations":saved,
+    })
+
+
+
+    
