@@ -1,7 +1,10 @@
 """Views for starting Stripe Checkout and recording completed payments."""
 
+from datetime import timedelta
+
 import stripe
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
@@ -12,12 +15,16 @@ from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
+from trips.models import Trip
+
 from .models import Payment, PremiumMembership
 
 STRIPE_PREMIUM_PRICE_ID = settings.STRIPE_PREMIUM_PRICE_ID
 stripe.api_key = settings.STRIPE_SECRET_KEY
 endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
 
+REFUND_WINDOW_DAYS = 14
+REFUND_MAX_TRIPS = 3
 
 def has_active_membership(user):
     """Return whether the user already has a membership in the active state."""
@@ -59,6 +66,7 @@ def fulfill_checkout(session):
 def checkout(request):
     """Show the checkout page unless the signed-in user is already premium."""
     if has_active_membership(request.user):
+        messages.info(request, "You're already a premium member.")
         return redirect("profile")
     return render(request, 'payments/checkout.html')
 
@@ -125,11 +133,20 @@ def payment_failed(request):
 
     return render(request, "payments/failed.html", {'error_message': error_message})
 
+def revoke_membership(payment_intent_id):
+    """Deactivate the membership tied to a refunded payment."""
+    with transaction.atomic():
+        PremiumMembership.objects.filter(
+            payment__stripe_payment_id=payment_intent_id
+        ).update(status="inactive")
+        Payment.objects.filter(
+            stripe_payment_id=payment_intent_id
+        ).update(status="refunded")
 
 @csrf_exempt
 @require_POST
 def stripe_webhook(request):
-    """Accept signed Stripe events and fulfill completed, paid Checkout sessions."""
+    """Accept signed Stripe events and fulfill completed, paid Checkout sessions.Also checks for refunds and partial refunds"""
     payload = request.body
     sig_header = request.headers.get("Stripe-Signature")
 
@@ -148,4 +165,53 @@ def stripe_webhook(request):
             except get_user_model().DoesNotExist:
                 print("Webhook: no user for", session["client_reference_id"])
 
+    elif event["type"] == "charge.refunded":
+        charge = event["data"]["object"]
+        if charge["refunded"]: 
+            revoke_membership(charge["payment_intent"])
+
+
     return JsonResponse({"status": "success"}, status=200)
+
+def refund_allowed(membership):
+    if not membership.started_at:
+        return False
+    if timezone.now() - membership.started_at > timedelta(days=REFUND_WINDOW_DAYS):
+        return False
+    trips_since = Trip.objects.filter(
+        user=membership.user,
+        created_at__gte=membership.created_at,  
+    ).count()
+    return trips_since <= REFUND_MAX_TRIPS
+
+
+@login_required
+@require_POST
+def request_refund(request):
+    """Refund the user's premium purchase if eligible and remove their access."""
+    membership = getattr(request.user, "membership", None)
+    if not (membership and membership.is_active and membership.payment):
+        messages.error(request, "No active membership to refund.")
+        return redirect("profile")
+
+    if not refund_allowed(membership):
+        messages.error(request, "This purchase is no longer eligible for a refund.")
+        return redirect("profile")
+
+    payment_id = membership.payment.stripe_payment_id
+    try:
+        stripe.Refund.create(
+            payment_intent=payment_id,
+            idempotency_key=f"refund-{membership.pk}-{payment_id}",
+        )
+    except stripe.StripeError:
+        messages.error(request, "We couldn't process the refund. Please contact support.")
+        return redirect("profile")
+
+    revoke_membership(payment_id)
+    messages.success(
+        request,
+        "Your refund is on its way (it can take a few days to reach your bank) "
+        "and premium has been removed.",
+    )
+    return redirect("profile")

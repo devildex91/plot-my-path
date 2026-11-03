@@ -4,6 +4,7 @@ from json import JSONDecodeError
 
 import requests
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import transaction
@@ -25,6 +26,7 @@ from .forms import (
     TripDetailsWizardForm,
 )
 from .models import PlannedActivity, Trip, TripDay
+from .permissions import can_create_trip
 
 FORMS = [
     ("preferences", PreferenceWizardForm),
@@ -36,11 +38,27 @@ FORMS = [
 
 class CreateTripView(LoginRequiredMixin, SessionWizardView):
     """Collect trip preferences and details across the multi-step creation flow."""
+
     form_list = FORMS
     template_name = "trips/trips.html"
 
+    def dispatch(self, request, *args, **kwargs):
+        """Block users who have used their free trip before any step loads"""
+        if request.user.is_authenticated and not can_create_trip(request.user):
+            messages.info(
+                request, "Youve used your free trip. Upgrade to premium to create more."
+            )
+            return redirect("profile")
+        return super().dispatch(request, *args, **kwargs)
+
     def done(self, form_list, **kwargs):
         """Save the user's preferences and trip after all wizard steps validate."""
+        if not can_create_trip(self.request.user):
+            messages.info(
+                self.request,
+                "You've used your free trip. Upgrade to premium to create more.",
+            )
+            return redirect("profile")
         preference_form = form_list[0]
         destination_form = form_list[1]
         details_form = form_list[2]
@@ -53,7 +71,7 @@ class CreateTripView(LoginRequiredMixin, SessionWizardView):
             setattr(preference, field, value)
 
         preference.save()
-  
+
         trip = Trip.objects.create(
             destination=destination_form.cleaned_data["destination"],
             name=destination_form.cleaned_data["name"],
@@ -100,7 +118,9 @@ def itinerary_builder(request, trip_id):
         id=trip_id,
         user=request.user,
     )
-    destination_attractions = Attraction.objects.filter(destination=trip_instance.destination)
+    destination_attractions = Attraction.objects.filter(
+        destination=trip_instance.destination
+    )
 
     weather_data = []
     weather_error = None
@@ -118,7 +138,7 @@ def itinerary_builder(request, trip_id):
                 longitude=trip_instance.destination.longitude,
                 start_date=trip_instance.start_date,
                 end_date=trip_instance.end_date,
-        )
+            )
 
         except (requests.RequestException, ValueError):
             weather_error = "Trip weather is temporarily unavailable."
@@ -142,15 +162,11 @@ def itinerary_builder(request, trip_id):
     trip_days = generate_trip_days(trip_instance)
     pref_instance = TravelPreference.objects.filter(user=request.user).first()
 
-    
-  
-
     preferences_data = None
 
     if pref_instance:
         preferences_data = {
             "travel_style": pref_instance.travel_style,
-            "budget_level": pref_instance.budget_level,
             "walking_preference": pref_instance.walking_preference,
             "culture": pref_instance.culture,
             "food": pref_instance.food,
@@ -161,7 +177,6 @@ def itinerary_builder(request, trip_id):
             "solo_travel": pref_instance.solo_travel,
         }
 
-   
     days_data = [
         {
             "id": day.id,
@@ -181,7 +196,6 @@ def itinerary_builder(request, trip_id):
                     "order": activity.order,
                     "notes": activity.notes,
                     "status": activity.status,
-                    
                 }
                 for activity in day.planned_activities.all().order_by("order")
             ],
@@ -189,7 +203,6 @@ def itinerary_builder(request, trip_id):
         for day in trip_days
     ]
 
-    
     serialized_data = {
         "trip": {
             "id": trip_instance.id,
@@ -218,11 +231,8 @@ def itinerary_builder(request, trip_id):
         {
             "trip": trip_instance,
             "app_data": serialized_data,
-           
-
         },
     )
-
 
 
 def get_destination_weather(latitude, longitude, start_date, end_date):
@@ -269,12 +279,9 @@ def get_destination_weather(latitude, longitude, start_date, end_date):
 @login_required
 def my_trips(request):
     """Render the signed-in user's trips, with the most recent start date first."""
-    trips = (
-        request.user.trips
-        .select_related("destination")
-        .order_by("-start_date")
-    )
-    return render (request,'trips/my_trips.html', {"trips": trips})
+    trips = request.user.trips.select_related("destination").order_by("-start_date")
+    return render(request, "trips/my_trips.html", {"trips": trips})
+
 
 @login_required
 @require_POST
@@ -303,16 +310,22 @@ def add_activity(request, trip_id, day_id):
         )
 
     if not isinstance(start_time_value, str) or not isinstance(end_time_value, str):
-        return JsonResponse({"error": "Times must be valid ISO 8601 times."}, status=400)
+        return JsonResponse(
+            {"error": "Times must be valid ISO 8601 times."}, status=400
+        )
 
     try:
         start_time = parse_time(start_time_value)
         end_time = parse_time(end_time_value)
     except ValueError:
-        return JsonResponse({"error": "Times must be valid ISO 8601 times."}, status=400)
+        return JsonResponse(
+            {"error": "Times must be valid ISO 8601 times."}, status=400
+        )
 
     if start_time is None or end_time is None:
-        return JsonResponse({"error": "Times must be valid ISO 8601 times."}, status=400)
+        return JsonResponse(
+            {"error": "Times must be valid ISO 8601 times."}, status=400
+        )
 
     attraction = get_object_or_404(
         Attraction,
@@ -348,6 +361,7 @@ def add_activity(request, trip_id, day_id):
         status=201,
     )
 
+
 @login_required
 @require_http_methods(["DELETE"])
 @transaction.atomic
@@ -356,18 +370,25 @@ def delete_activity(request, trip_id, activity_id):
     activity = get_object_or_404(
         PlannedActivity.objects.select_related("trip_day__trip"),
         id=activity_id,
-        trip_day__trip_id=trip_id,  # Secures the lookup context
-        trip_day__trip__user=request.user
+        trip_day__trip_id=trip_id,  
+        trip_day__trip__user=request.user,
     )
     day = activity.trip_day
     activity.delete()
-    
-    
+
     remaining_activities = day.planned_activities.order_by("start_time")
     for index, remaining_activity in enumerate(remaining_activities, start=1):
         if remaining_activity.order != index:
             remaining_activity.order = index
             remaining_activity.save(update_fields=["order"])
-            
+
     return JsonResponse({"success": True, "message": "Activity deleted successfully."})
 
+
+@login_required
+def create_trip(request):
+    if not can_create_trip(request.user):
+        messages.info(
+            request, "You've used your free trip. Upgrade to premium to create more."
+        )
+        return redirect("profile")  

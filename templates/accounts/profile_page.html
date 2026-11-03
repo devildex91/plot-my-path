@@ -21,7 +21,14 @@
 {% endif %}
 <a href="{% url 'socialaccount_connections' %}" class = "p-4 text-primary">Connected accounts</a>
 <a href = "{% url 'favourite_destinations'  %}" class = "p-4 text-primary">Saved Destinations</a>
-<a href = "{% url "checkout" %}" class = "p-4 text-primary">Premium membership</a>
+<a href = "{% url "checkout" %}" class = "p-4 text-primary">Activate membership</a>
+{% if request.user.membership.is_active %}
+  <form method="post" action="{% url 'request_refund' %}"
+        onsubmit="return confirm('Refund your purchase and remove premium?');">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-outline btn-error">Cancel and refund</button>
+  </form>
+{% endif %}
 <hr>
 <a href = "{% url 'contact' %}" class = "p-4 text-primary">Help and Support</a>
 <span class = "text-primary">

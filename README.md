@@ -234,3 +234,195 @@ Plot My Paths features will include:
 [back to top](#plot-my-path)
 
 chat gpt used to help find right ids and fields to style for wizard forms and login/signup forms
+```
+plot-my-path
+├─ accounts
+│  ├─ admin.py
+│  ├─ apps.py
+│  ├─ migrations
+│  │  ├─ 0001_initial.py
+│  │  ├─ 0002_alter_travelpreference_budget_level_and_more.py
+│  │  ├─ 0003_remove_weather_data.py
+│  │  └─ __init__.py
+│  ├─ models.py
+│  ├─ tests.py
+│  ├─ urls.py
+│  ├─ views.py
+│  └─ __init__.py
+├─ assets
+│  ├─ components
+│  │  ├─ ActivityList.jsx
+│  │  ├─ AddActivityForm.jsx
+│  │  ├─ ItineraryMap.jsx
+│  │  ├─ itinerary_builder.jsx
+│  │  ├─ onboarding.jsx
+│  │  ├─ searchBar.jsx
+│  │  ├─ utils.js
+│  │  └─ WeatherPanel.jsx
+│  ├─ js
+│  ├─ main.jsx
+│  └─ styles
+│     └─ style.css
+├─ config
+│  ├─ asgi.py
+│  ├─ settings.py
+│  ├─ urls.py
+│  ├─ wsgi.py
+│  └─ __init__.py
+├─ core
+│  ├─ admin.py
+│  ├─ apps.py
+│  ├─ forms.py
+│  ├─ migrations
+│  │  └─ __init__.py
+│  ├─ models.py
+│  ├─ tests.py
+│  ├─ urls.py
+│  ├─ views.py
+│  └─ __init__.py
+├─ destinations
+│  ├─ admin.py
+│  ├─ apps.py
+│  ├─ fixtures
+│  │  ├─ attractions
+│  │  │  ├─ bangkok.json
+│  │  │  ├─ barcelona.json
+│  │  │  ├─ busan.json
+│  │  │  ├─ cancun.json
+│  │  │  ├─ chiang-mai.json
+│  │  │  ├─ edinburugh.json
+│  │  │  ├─ florence.json
+│  │  │  ├─ kyoto.json
+│  │  │  ├─ london.json
+│  │  │  ├─ los-angeles.json
+│  │  │  ├─ madrid.json
+│  │  │  ├─ mexico-city.json
+│  │  │  ├─ mumbai.json
+│  │  │  ├─ new-delhi.json
+│  │  │  ├─ new-york-city.json
+│  │  │  ├─ nice.json
+│  │  │  ├─ paris.json
+│  │  │  ├─ rome.json
+│  │  │  ├─ seoul.json
+│  │  │  ├─ sydney.json
+│  │  │  ├─ tokyo.json
+│  │  │  ├─ toronto.json
+│  │  │  └─ vancouver.json
+│  │  ├─ initial_countries.json
+│  │  └─ sample_destinations.json
+│  ├─ migrations
+│  │  ├─ 0001_initial.py
+│  │  ├─ 0002_remove_attraction_image_url_and_more.py
+│  │  └─ __init__.py
+│  ├─ models.py
+│  ├─ tests.py
+│  ├─ urls.py
+│  ├─ views.py
+│  └─ __init__.py
+├─ manage.py
+├─ package-lock.json
+├─ package.json
+├─ payments
+│  ├─ admin.py
+│  ├─ apps.py
+│  ├─ migrations
+│  │  ├─ 0001_initial.py
+│  │  ├─ 0002_alter_premiummembership_stripe_customer_id.py
+│  │  └─ __init__.py
+│  ├─ models.py
+│  ├─ tests.py
+│  ├─ urls.py
+│  ├─ views.py
+│  └─ __init__.py
+├─ planner
+│  ├─ admin.py
+│  ├─ apps.py
+│  ├─ migrations
+│  │  ├─ 0001_initial.py
+│  │  └─ __init__.py
+│  ├─ models.py
+│  ├─ tests.py
+│  ├─ views.py
+│  └─ __init__.py
+├─ README.md
+├─ requirements.txt
+├─ static
+│  ├─ assets
+│  │  ├─ maplibre-gl-DudBHU-O-Ca6Bsq9c.js
+│  │  ├─ maplibre-gl-worker-DeF4u0kt.js
+│  │  ├─ rolldown-runtime-BrVfq_k5.js
+│  │  └─ rolldown-runtime-D2aABDIb.js
+│  ├─ css
+│  │  └─ style.css
+│  ├─ images
+│  │  ├─ destination-img
+│  │  ├─ home_img.avif
+│  │  ├─ landing_background.avif
+│  │  ├─ new_discovery.avif
+│  │  ├─ personalised_itinery.avif
+│  │  ├─ pmp-logo.png
+│  │  ├─ readme-img
+│  │  │  ├─ mobile-create-plan copy.png
+│  │  │  ├─ mobile-create-plan.png
+│  │  │  ├─ mobile-destination-detail.png
+│  │  │  ├─ mobile-explore-destination.png
+│  │  │  ├─ mobile-homepage.png
+│  │  │  ├─ mobile-itinerary-builder.png
+│  │  │  ├─ mobile-landing-page.png
+│  │  │  ├─ mobile-login-page.png
+│  │  │  ├─ mobile-onboarding-pages.png
+│  │  │  ├─ mobile-profile.png
+│  │  │  ├─ mobile-register-page.png
+│  │  │  └─ mobile-trip-summary.png
+│  │  └─ real_time.avif
+│  ├─ js
+│  │  ├─ app-bundle.js
+│  │  └─ index-bundle.js
+│  ├─ manifest.json
+│  └─ maplibre
+│     ├─ maplibre-gl-shared.mjs
+│     └─ maplibre-gl-worker.mjs
+├─ templates
+│  ├─ account
+│  │  ├─ login.html
+│  │  └─ signup.html
+│  ├─ accounts
+│  │  ├─ favourite_destinations.html
+│  │  └─ profile_page.html
+│  ├─ allauth
+│  │  └─ layouts
+│  │     └─ base.html
+│  ├─ base.html
+│  ├─ core
+│  │  ├─ contact.html
+│  │  ├─ home.html
+│  │  ├─ landing_page.html
+│  │  └─ onboarding.html
+│  ├─ destinations
+│  │  ├─ destination.html
+│  │  └─ destination_detail.html
+│  ├─ payments
+│  │  ├─ cancel.html
+│  │  ├─ checkout.html
+│  │  ├─ failed.html
+│  │  └─ success.html
+│  └─ trips
+│     ├─ itinerary_builder.html
+│     ├─ my_trips.html
+│     └─ trips.html
+├─ trips
+│  ├─ admin.py
+│  ├─ apps.py
+│  ├─ forms.py
+│  ├─ migrations
+│  │  ├─ 0001_initial.py
+│  │  └─ __init__.py
+│  ├─ models.py
+│  ├─ permissions.py
+│  ├─ tests.py
+│  ├─ urls.py
+│  ├─ views.py
+│  └─ __init__.py
+└─ vite.config.mjs
+
+```

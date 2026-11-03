@@ -6,7 +6,7 @@ from django.urls import reverse
 
 from destinations.models import Attraction, Destination
 
-# Create your models here.
+
 
 class Trip(models.Model):
     """A user's trip, including its destination, dates, budget, and status."""
