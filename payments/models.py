@@ -27,7 +27,7 @@ class Payment(models.Model):
         blank=True
     )
 
-    # Stripe reports payment amounts in the currency's smallest unit (for GBP, pence).
+    
     amount = models.PositiveIntegerField()
 
     currency = models.CharField(

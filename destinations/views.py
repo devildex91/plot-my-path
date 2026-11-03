@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 
 from .models import Country, Destination
-
+from accounts.models import SavedDestination
 
 # Create your views here.
 @login_required
@@ -38,10 +38,15 @@ def destination_detail_view(request, destination_id):
     destination = get_object_or_404(Destination, id=destination_id)
     attractions = destination.attractions.all()
 
+    is_favourite = SavedDestination.objects.filter(
+        user=request.user,
+        destination=destination
+    ).exists()
+
     return render(
         request,
         "destinations/destination_detail.html",
-        {"destination": destination, "attractions": attractions},
+        {"destination": destination, "attractions": attractions, "is_favourite": is_favourite,},
     )
 
 

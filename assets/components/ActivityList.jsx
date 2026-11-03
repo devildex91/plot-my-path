@@ -32,7 +32,15 @@ export default function ActivityList({
                   />
                 </div>
                 <div>
-                  <div>{attraction?.name || "Unknown attraction"}</div>
+                  <div className="font-medium">
+                    {attraction?.name || "Unknown attraction"}
+                  </div>
+
+                  {attraction?.matches_preferences && (
+                    <span className="badge badge-success badge-sm mt-1">
+                      Matches your interests
+                    </span>
+                  )}
                   <div className="text-xs uppercase font-semibold opacity-60">
                     {formatActivityTime(activity.start_time)} -{" "}
                     {formatActivityTime(activity.end_time)}

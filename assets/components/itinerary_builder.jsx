@@ -7,6 +7,18 @@ import { getCookie } from "./utils";
 
 const isValidCoord = (lat, lng) => Number.isFinite(lat) && Number.isFinite(lng);
 
+const CATEGORY_PREFERENCE_MAP = {
+  historic: ["history", "culture"],
+  culture: ["culture"],
+  sightseeing: ["culture"],
+  landmark: ["history", "culture"],
+  nature: ["nature"],
+  architecture: ["culture", "history"],
+  beach: ["nature"],
+  museum: ["culture", "history"],
+  science: ["culture"],
+};
+
 /** Render and manage the interactive itinerary for the selected trip day. */
 function ItineraryBuilder({
   trip,
@@ -31,6 +43,34 @@ function ItineraryBuilder({
   });
 
   const currentDay = daysState[currentDayIndex];
+  const preferredInterests = [
+    "culture",
+    "food",
+    "nature",
+    "history",
+    "nightlife",
+    "family_friendly",
+    "solo_travel",
+  ].filter((interest) => preferences?.[interest] === true);
+
+  const enrichedAttractions = attractions.map((attraction) => {
+    const category = attraction.category?.toLowerCase().replace(/\s+/g, "_");
+
+    const matchingPreferences = CATEGORY_PREFERENCE_MAP[category] || [];
+
+    const matchesPreferences = matchingPreferences.some((interest) =>
+      preferredInterests.includes(interest),
+    );
+
+    return {
+      ...attraction,
+      matches_preferences: matchesPreferences,
+    };
+  });
+
+  const sortedAttractions = [...enrichedAttractions].sort(
+    (a, b) => Number(b.matches_preferences) - Number(a.matches_preferences),
+  );
 
   const formatDayDate = (dateString) => {
     if (!dateString) return "Date unavailable";
@@ -163,7 +203,7 @@ function ItineraryBuilder({
 
           <ActivityList
             activities={activities}
-            attractions={attractions}
+            attractions={sortedAttractions}
             onRemove={handleRemoveActivity}
             deletingActivityId={deletingActivityId}
             error={deleteError}
@@ -200,7 +240,8 @@ function ItineraryBuilder({
 
           <AddActivityForm
             key={currentDay.id}
-            attractions={attractions}
+            attractions={sortedAttractions}
+            preferences={preferences}
             activities={activities}
             addUrl={currentDay.add_activity_url}
             onAdded={handleActivityAdded}

@@ -57,7 +57,7 @@ if (toggle) {
   });
 }
 
-//
+// Payment flow event handler
 document.addEventListener("click", async (e) => {
   const btn = e.target.closest("#checkout-button");
   if (!btn || btn.disabled) return;
@@ -81,3 +81,60 @@ document.addEventListener("click", async (e) => {
   }
   btn.disabled = false;
 });
+// Favourite button for Django-rendered destination cards
+document.addEventListener("click", async (e) => {
+  const button = e.target.closest(".favourite-btn");
+
+  if (!button || button.disabled) return;
+
+  button.disabled = true;
+
+  try {
+    const response = await fetch(button.dataset.url, {
+      method: "POST",
+      headers: {
+        "X-CSRFToken": getCookie("csrftoken"),
+      },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Could not update favourite.");
+    }
+
+    const icon = button.querySelector("i");
+
+    if (data.is_favourite) {
+      icon.classList.replace("fa-regular", "fa-solid");
+      icon.classList.add("text-red-500");
+      button.setAttribute("aria-label", "Remove from favourites");
+    } else {
+      icon.classList.replace("fa-solid", "fa-regular");
+      icon.classList.remove("text-red-500");
+      button.setAttribute("aria-label", "Add to favourites");
+    }
+
+  } catch (error) {
+    console.error("Favourite error:", error);
+  } finally {
+    button.disabled = false;
+  }
+});
+
+// Retrieve Django CSRF cookie
+function getCookie(name) {
+  const cookies = document.cookie.split(";");
+
+  for (const cookie of cookies) {
+    const cookieValue = cookie.trim();
+
+    if (cookieValue.startsWith(name + "=")) {
+      return decodeURIComponent(
+        cookieValue.substring(name.length + 1)
+      );
+    }
+  }
+
+  return null;
+}

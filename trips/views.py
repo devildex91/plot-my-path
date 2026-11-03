@@ -133,6 +133,7 @@ def itinerary_builder(request, trip_id):
             "description": attraction.description,
             "entry_cost": attraction.entry_cost,
             "image_url": attraction.get_image_url,
+            "category": attraction.category,
             "latitude": str(attraction.latitude),
             "longitude": str(attraction.longitude),
         }
