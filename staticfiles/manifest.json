@@ -1,0 +1,20 @@
+{
+  "assets/main.jsx": {
+    "file": "js/app-bundle.js",
+    "name": "app",
+    "src": "assets/main.jsx",
+    "isEntry": true,
+    "css": [
+      "css/app.css"
+    ]
+  },
+  "assets/styles/style.css": {
+    "file": "css/style.css",
+    "name": "style",
+    "names": [
+      "style.css"
+    ],
+    "src": "assets/styles/style.css",
+    "isEntry": true
+  }
+}

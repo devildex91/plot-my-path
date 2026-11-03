@@ -37,11 +37,17 @@ STRIPE_WEBHOOK_SECRET = env("STRIPE_WEBHOOK_SECRET")
 CLOUDINARY_CLOUD_NAME = cloudinary.config().cloud_name
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = env.list(
+    "ALLOWED_HOSTS",
+    default=["127.0.0.1", "localhost"]
+)
 
-
+CSRF_TRUSTED_ORIGINS = env.list(
+    "CSRF_TRUSTED_ORIGINS",
+    default=[]
+)
 # Application definition
 
 INSTALLED_APPS = [
@@ -73,6 +79,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -143,10 +150,6 @@ ALLAUTH_UI_THEME = "fantasy"
 
 ACCOUNT_UNIQUE_EMAIL = True
 
-SLIPPERS_COMPONENTS = {
-    "button": "components/button.html",
-}
-
 WSGI_APPLICATION = "config.wsgi.application"
 
 
@@ -154,11 +157,13 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    "default": env.db(
+        "DATABASE_URL",
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+    )
 }
+
+DATABASES["default"]["CONN_MAX_AGE"] = 600
 
 
 # Password validation
@@ -200,15 +205,47 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-DJANGO_VITE = {"default": {"dev_mode": True}}
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+   "staticfiles": {
+    "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+},
+}
+DJANGO_VITE = {
+    "default": {
+        "dev_mode": DEBUG,
+        "manifest_path": BASE_DIR / "static" / "manifest.json",
+    }
+}
+
+SECURE_PROXY_SSL_HEADER = (
+    "HTTP_X_FORWARDED_PROTO",
+    "https",
+)
+
+if not DEBUG:
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 DEFAULT_FROM_EMAIL = "noreply@example.com"
 CONTACT_EMAIL = "you@example.com"
 MAILERS = {
     "default": {
-        "BACKEND": "django.core.mail.backends.console.EmailBackend",
-    },
-    
+        "BACKEND": "django.core.mail.backends.smtp.EmailBackend",
+        "OPTIONS": {
+            "host": env("EMAIL_HOST"),
+            "port": env.int("EMAIL_PORT", default=587),
+            "username": env("EMAIL_HOST_USER"),
+            "password": env("EMAIL_HOST_PASSWORD"),
+            "use_tls": env.bool("EMAIL_USE_TLS", default=True),
+        },
+    }
 }
 
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
+
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")

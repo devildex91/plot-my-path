@@ -1,0 +1,1 @@
+import{t as e}from"../assets/rolldown-runtime-BrVfq_k5.js";var t=e((()=>{function e(){let e=document.createElement(`div`);return e.innerHTML=`Hello Vite`,e}document.body.appendChild(e())}));export default t();

@@ -1,7 +1,12 @@
 import { defineConfig } from 'vite';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: '/static/', 
@@ -13,7 +18,6 @@ export default defineConfig({
     manifest: "manifest.json",
     rollupOptions: {
       input: {
-        'index': path.resolve(__dirname, './assets/js/index.js'),
         'app': path.resolve(__dirname, './assets/main.jsx'),
         'style': path.resolve(__dirname, './assets/styles/style.css'),
       },
