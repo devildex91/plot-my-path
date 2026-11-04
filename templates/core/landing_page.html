@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plot My Path</title>
-    {% vite_asset 'assets/styles/style.css' %}
+    <link rel="stylesheet" href="{% vite_asset_url 'assets/styles/style.css' %}" />
   </head>
   <body class="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat" style="background-image: url('{% static 'images/landing_background.avif' %}');">
     <header class="w-full flex justify-center pt-8">
