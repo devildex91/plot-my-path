@@ -4,9 +4,7 @@
 <div class="max-w-lg mx-auto my-8">
   <h1 class="text-2xl font-bold mb-4">Contact us</h1>
 
-  {% for message in messages %}
-    <div class="alert alert-success mb-4">{{ message }}</div>
-  {% endfor %}
+  
 
   <form method="post" class="space-y-4">
     {% csrf_token %}

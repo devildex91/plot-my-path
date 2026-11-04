@@ -232,8 +232,8 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
-DEFAULT_FROM_EMAIL = "noreply@example.com"
-CONTACT_EMAIL = "you@example.com"
+
+
 MAILERS = {
     "default": {
         "BACKEND": "anymail.backends.brevo.EmailBackend",
@@ -244,3 +244,4 @@ MAILERS = {
 }
 
 DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
+CONTACT_EMAIL = env("CONTACT_EMAIL")
