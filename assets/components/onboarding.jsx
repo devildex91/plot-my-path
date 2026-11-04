@@ -27,8 +27,7 @@ function Onboarding({ homeUrl }) {
                 Personalised Itineraries
               </h2>
               <p className="text-xl text-center mx-2 my-4 opacity-80">
-                Tell us your preferences and we will create the perfect trip
-                just for you.
+                Tell us your preferences and we will show you the perfect things to do on your trip.
               </p>
             </div>
             <a
