@@ -236,6 +236,9 @@ Plot My Paths features will include:
 chat gpt used to help find right ids and fields to style for wizard forms and login/signup forms
 
 orginally set up email backend with smtp but when deploying on render found out that it blocks the smtp on the hots server I was using so downloaded django anymail and set it up with brevo api key instead to get around this. 
+
+Initially css loaded with  {% vite_asset 'assets/styles/style.css' %} which although worked locally the css was being loaded as a js file and failing in live deployment so replaced with :
+<link rel="stylesheet" href="{% vite_asset_url 'assets/styles/style.css' %}" /> which fixed the issue 
 plot-my-path
 ├─ accounts
 │  ├─ admin.py

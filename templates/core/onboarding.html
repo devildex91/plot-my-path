@@ -14,7 +14,7 @@
       window.DJANGO_STATIC_URL = "{% static '' %}";
     </script>
 
-     {% vite_asset 'assets/styles/style.css' %}
+    <link rel="stylesheet" href="{% vite_asset_url 'assets/styles/style.css' %}" /> 
 </head>
 <body class="min-h-screen bg-base-100"> 
       <div id="onboarding" data-home-url="{% url 'home' %}"></div>
