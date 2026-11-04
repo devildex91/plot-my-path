@@ -32,14 +32,13 @@ class DestinationWizardForm(forms.ModelForm):
 
 
 class TripDetailsWizardForm(forms.ModelForm):
-    """Capture trip dates, budget, and status, validating the date range."""
+    """Capture trip dates and budget, validating the date range."""
     class Meta:
         model = Trip
         fields = (
             "start_date",
             "end_date",
             "budget",
-            "status",
         )
 
     def __init__(self, *args, **kwargs):

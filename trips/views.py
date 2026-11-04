@@ -78,7 +78,6 @@ class CreateTripView(LoginRequiredMixin, SessionWizardView):
             start_date=details_form.cleaned_data["start_date"],
             end_date=details_form.cleaned_data["end_date"],
             budget=details_form.cleaned_data["budget"],
-            status=details_form.cleaned_data["status"],
             user=self.request.user,
         )
 
@@ -210,7 +209,6 @@ def itinerary_builder(request, trip_id):
             "start_date": trip_instance.start_date.isoformat(),
             "end_date": trip_instance.end_date.isoformat(),
             "budget": str(trip_instance.budget),
-            "status": trip_instance.status,
             "destination": {
                 "id": trip_instance.destination.id,
                 "name": str(trip_instance.destination),

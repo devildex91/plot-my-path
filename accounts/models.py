@@ -8,7 +8,7 @@ from destinations.models import Destination
 # Create your models here.
 
 class TravelPreference(models.Model):
-    """Store the travel style, budget, and interests used to personalize trips."""
+    """Store the travel style and interests used to personalize trips."""
 
     TRAVEL_STYLE_CHOICES: ClassVar[list[tuple[str, str]]] = [
     ("adventure", "Adventure"),
@@ -19,12 +19,6 @@ class TravelPreference(models.Model):
     ("nature", "Nature"),
 ]
 
-    BUDGET_LEVEL_CHOICES: ClassVar[list[tuple[str, str]]] = [
-    ("budget", "Budget"),
-    ("mid_range", "Mid Range"),
-    ("luxury", "Luxury"),
-]
-
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
@@ -33,11 +27,6 @@ class TravelPreference(models.Model):
     travel_style = models.CharField(
         max_length=50,
         choices=TRAVEL_STYLE_CHOICES
-    )
-
-    budget_level = models.CharField(
-        max_length=20,
-        choices=BUDGET_LEVEL_CHOICES
     )
 
     walking_preference = models.BooleanField(default=False)
@@ -64,5 +53,4 @@ class SavedDestination(models.Model):
 
     def __str__(self):
         return f"{self.user.username} saved {self.destination.name}"
-
 

@@ -9,14 +9,13 @@ from destinations.models import Attraction, Destination
 
 
 class Trip(models.Model):
-    """A user's trip, including its destination, dates, budget, and status."""
+    """A user's trip, including its destination, dates, and budget."""
     user =  models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='trips')
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE, related_name='trips')
     name=models.CharField(max_length=150)
     start_date=models.DateField()
     end_date = models.DateField()
     budget = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(max_length=50, default='planning')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

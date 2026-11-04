@@ -2,11 +2,6 @@
 {% load static %}
 
 {% block header %}
-{% if messages %}
-    {% for message in messages %}
-        <p class = "--color-info-content" >{{ message }}</p>
-    {% endfor %}
-{% endif %}
     
 <div class="flex flex-col items-center px-4">
   <h1 class="title text-2xl mt-10 font-extrabold text-center text-primary">
