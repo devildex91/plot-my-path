@@ -234,7 +234,8 @@ Plot My Paths features will include:
 [back to top](#plot-my-path)
 
 chat gpt used to help find right ids and fields to style for wizard forms and login/signup forms
-```
+
+orginally set up email backend with smtp but when deploying on render found out that it blocks the smtp on the hots server I was using so downloaded django anymail and set it up with brevo api key instead to get around this. 
 plot-my-path
 ├─ accounts
 │  ├─ admin.py

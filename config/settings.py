@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_daisyui",
     "formtools",
+    "anymail",
     
 ]
 
@@ -235,17 +236,11 @@ DEFAULT_FROM_EMAIL = "noreply@example.com"
 CONTACT_EMAIL = "you@example.com"
 MAILERS = {
     "default": {
-        "BACKEND": "django.core.mail.backends.smtp.EmailBackend",
+        "BACKEND": "anymail.backends.brevo.EmailBackend",
         "OPTIONS": {
-            "host": env("EMAIL_HOST"),
-            "port": env.int("EMAIL_PORT", default=587),
-            "username": env("EMAIL_HOST_USER"),
-            "password": env("EMAIL_HOST_PASSWORD"),
-            "use_tls": env.bool("EMAIL_USE_TLS", default=True),
+            "api_key": env("BREVO_API_KEY"),
         },
     }
 }
-
-DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
 
 DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
