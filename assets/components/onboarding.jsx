@@ -89,7 +89,7 @@ function Onboarding({ homeUrl }) {
                 Real-Time Info
               </h2>
               <p className="text-xl text-center mx-2 opacity-80">
-                Get timely travel tips and smart recommendations.
+                Get timely weather updates and smart recommendations.
               </p>
             </div>
             <a

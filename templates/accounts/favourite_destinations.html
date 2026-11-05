@@ -1,14 +1,27 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
 {% block content %}
-
-{% for item in saved_destinations %}
-  <div class="destination-card">
-    <h3>{{ item.destination.name }}</h3>
-    
+  <div class="max-w-7xl mx-auto px-4 py-6 text-primary">
+    <h1 class="text-2xl md:text-3xl font-bold mb-6 text-center">My Saved Destinations</h1>
+    {% if saved_destinations %}
+      <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+        {% for item in saved_destinations %}
+          <div class="card bg-base-200 w-full shadow-sm border border-primary">
+            <figure class="aspect=[4/3]">
+              <img src="{{ item.destination.get_image_url }}" alt="{{ item.destination }}" />
+            </figure>
+            <div class="card-body">
+              <h3 class = "font-bold text-xl">{{ item.destination.name }}</h3>
+              <p class="font-bold">{{ item.destination.description }}</p>
+              <div class="card-actions justify-end">
+                <a href="{% url 'organise_trip' %}" class="btn btn-primary mt-4">Start Planning</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="opacity-70">You haven't found any favourite destinations.</p>
+      <a href="{% url 'destination_lists' %}" class="btn btn-primary mt-4">Browse Destinations</a>
+    {% endif %}
   </div>
-{% empty %}
-  <p>You haven't saved any destinations yet.</p>
-{% endfor %}
-
 {% endblock %}

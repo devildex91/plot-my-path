@@ -21,12 +21,23 @@
 {% block content %}
 {% static 'images/home_img.avif' as hero_image %}
 
-<div class=" relative rounded-xl m-4 bg-cover bg-center md:bg-bottom bg-no-repeat min-h-96 px-6 py-12"
+<div class=" relative flex flex-col rounded-xl m-4 bg-cover bg-center md:bg-bottom bg-no-repeat min-h-96 px-6 py-12"
     style="background-image: url('{{hero_image}}');">
-    <h3 class="text-3xl font-bold text-white mb-6 absolute top-2 left-2 ">
+    <div class="font-bold text-white mb-6 ">
+    <h3 class="text-3xl mb-3">
         Explore the world one trip at a time
     </h3>
-    <a href = "{% url 'organise_trip' %}" class = "btn btn-primary absolute bottom-2 right-2">Start Planning</a>
+    <p>Lets take the stress out of holiday planning in these simple steps. </p>
+    <ol class ="text-sm list-decimal list-inside mt-2 space-y-1" >
+      <li><a href="{% url 'destination_lists' %}" class=" hover:text-secondary transition-colors" aria-label="Explore">
+           Explore 
+        </a> our handpicked destinations to suit every Holiday style </li>
+        <li>Take a deep dive into that destination and look at all the attractions we have carefully sourced to provide a 5 star holday.</li>
+        <li>Once you can imagine yourself in that destination, it's time to start planning</li>
+        <li>Our easy to follow booking form will guide you through the process before letting you pick your attractions and plan your holiday. </li>
+    </ol>
+    </div>
+    <a href = "{% url 'organise_trip' %}" class = "btn btn-primary mt-auto self-end">Start Planning</a>
     
 </div>
 

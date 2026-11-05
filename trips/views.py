@@ -384,9 +384,13 @@ def delete_activity(request, trip_id, activity_id):
 
 
 @login_required
-def create_trip(request):
-    if not can_create_trip(request.user):
-        messages.info(
-            request, "You've used your free trip. Upgrade to premium to create more."
-        )
-        return redirect("profile")  
+@require_POST
+def delete_trip(request, trip_id):
+    """Delete a trip belonging to the signed-in user."""
+    trip = get_object_or_404(Trip, id=trip_id, user=request.user)
+    trip.delete()
+    messages.success(request, "Trip deleted.")
+    return redirect("my_trips")
+
+
+
