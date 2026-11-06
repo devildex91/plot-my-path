@@ -67,18 +67,6 @@
         {% endblock body %}
         {% block extra_body %}
         {% endblock extra_body %}
-                  <script>
-  const toggle = document.getElementById("theme-toggle");
-  const root = document.documentElement;
-
-  toggle.checked = root.getAttribute("data-theme") === "sunset";
-
-  toggle.addEventListener("change", () => {
-    const theme = toggle.checked ? "sunset" : "fantasy";
-    root.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  });
-</script>
     </body>
 
 </html>
