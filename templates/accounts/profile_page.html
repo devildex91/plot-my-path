@@ -1,61 +1,82 @@
 {% extends 'base.html' %}
-{% block header %}
-   <div class = " flex flex-col place-content-center text-primary font-bold text-center p-4">
-    <h1>{{request.user.first_name}} {{request.user.last_name}}</h1>
-<h2 class = " text-primary">{{request.user.email}}</h2>
+{% block content %}
+  <div class="max-w-md mx-auto px-4 py-6 text-primary">
+    <div class="flex flex-col items-center text-center mb-6">
+      <div class="bg-primary text-primary-content w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold mb-3">{{ user.get_full_name|default:user.username|first|upper }}</div>
+      <h1 class="text-2xl font-bold">{{ user.get_full_name|default:user.username }}</h1>
+      <p class="text-sm opacity-70">{{ user.email }}</p>
+      {% if user.membership.is_active %}
+        <span class="badge badge-primary mt-2"><i class="fa-solid fa-crown mr-1"></i> Premium</span>
+      {% endif %}
     </div>
-{% endblock %}
- {% block content %}
- <div class = "flex flex-col place-content-center text-center font-bold  mt-10">
-<a href = "{% url 'my_trips' %}" class = "p-4 text-primary">Upcoming Trips</a>
-<a href = "{% url 'account_email' %}" class = "p-4 text-primary">Update Email Address</a>
-{% if user.has_usable_password %}
-  <a href="{% url 'account_change_password' %}" class = "p-4 text-primary">Change password</a>
-{% else %}
-  <a href="{% url 'account_set_password' %}" class = "p-4 text-primary">Set a password</a>
-{% endif %}
-<a href="{% url 'socialaccount_connections' %}" class = "p-4 text-primary">Connected accounts</a>
-<a href = "{% url 'favourite_destinations'  %}" class = "p-4 text-primary">Saved Destinations</a>
-<a href = "{% url "checkout" %}" class = "p-4 text-primary">Activate membership</a>
-{% if request.user.membership.is_active %}
-  <form method="post" action="{% url 'request_refund' %}"
-        onsubmit="return confirm('Refund your purchase and remove premium?');">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-outline btn-error">Cancel and refund</button>
-  </form>
-{% endif %}
-{% if request.user.is_superuser %}
-<a href = "{% url 'admin:index' %}" class = "p-4 text-primary">Admin</a>
-{% endif %}
-<hr>
-<a href = "{% url 'contact' %}" class = "p-4 text-primary">Help and Support</a>
-<span class = "text-primary">
-    Toggle Theme
-<label class="swap swap-rotate btn btn-ghost btn-circle">
-  <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode" class = "btn-primary" />
+    <ul class="menu bg-base-200 rounded-box w-full mb-4 border border-primary">
+      <li class="menu-title text-primary">My travel</li>
+      <li>
+        <a href="{% url 'my_trips' %}" class="p-4 text-primary">Upcoming Trips</a>
+      </li>
+      <li>
+        <a href="{% url 'favourite_destinations' %}" class="p-4 text-primary">Saved Destinations</a>
+      </li>
+    </ul>
 
-
-  <svg class="swap-off h-6 w-6 fill-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M5.64 17l-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17zM5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm7-7a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zM5.64 7.05a1 1 0 0 0 .7.29 1 1 0 0 0 .71-.29 1 1 0 0 0 0-1.41l-.71-.71a1 1 0 0 0-1.41 1.41zm12 .29a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.64.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .64.29zM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2zm-9 8a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1zm6.36-2A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41zM12 6.5A5.5 5.5 0 1 0 17.5 12 5.51 5.51 0 0 0 12 6.5zm0 9A3.5 3.5 0 1 1 15.5 12 3.5 3.5 0 0 1 12 15.5z"/>
-  </svg>
-
-  <svg class="swap-on h-6 w-6 fill-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M21.64 13a1 1 0 0 0-1.05-.14 8.05 8.05 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05z"/>
-  </svg>
-</label>
-</span>
-<hr>
-<form method="post" action="{% url 'account_logout' %}" class="shrink-0">
-    
+    <ul class="menu bg-base-200 rounded-box w-full mb-4 border border-primary">
+      <li class="menu-title text-primary">Account</li>
+      <li>
+        <a href="{% url 'account_email' %}" class="p-4 text-primary">Update Email Address</a>
+      </li>
+      <li>
+        {% if user.has_usable_password %}
+          <a href="{% url 'account_change_password' %}" class="p-4 text-primary">Change password</a>
+        {% else %}
+          <a href="{% url 'account_set_password' %}" class="p-4 text-primary">Set a password</a>
+        {% endif %}
+      </li>
+      <li>
+        <a href="{% url 'socialaccount_connections' %}" class="p-4 text-primary">Connected accounts</a>
+      </li>
+      <li>
+        {% if request.user.membership.is_active %}
+          <form method="post" action="{% url 'request_refund' %}" onsubmit="return confirm('Refund your purchase and remove premium?');">
             {% csrf_token %}
-            {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-            {% endif %}
-            <button type="submit" class="bg-red-600 hover:bg-red-700 w-full text-white p-2 m-4 rounded-lg font-medium transition cursor-pointer text-xs">
-                Log Out
-            </button>
-        </form>
-    </div>
+            <button type="submit" class="btn btn-outline btn-error">Cancel and refund</button>
+            {% else %}
+            <a href="{% url 'checkout' %}" class="p-4 text-primary">Activate membership</a>
+          </form>
+        {% endif %}
+      </li>
+      <li>
+        {% if request.user.is_superuser %}
+          <a href="{% url 'admin:index' %}" class="p-4 text-primary">Admin</a>
+        {% endif %}
+      </li>
+    </ul>
 
+    <ul class="menu bg-base-200 rounded-box w-full mb-4 border border-primary">
+      <li>
+        <a href="{% url 'contact' %}" class="p-4 text-primary">Help and Support</a>
+      </li>
+    </ul>
 
- {% endblock %}
+    <ul class="menu bg-base-200 rounded-box w-full mb-4 border border-primary flex flex-row items-center justify-between">
+      <li class="px-4 py-2">Toggle Theme</li>
+      <li class="ml-auto px-4 py-2">
+        <label class="swap swap-rotate btn btn-ghost btn-circle">
+          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode" />
+          <svg class="swap-off h-6 w-6 fill-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M5.64 17l-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17zM5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm7-7a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zM5.64 7.05a1 1 0 0 0 .7.29 1 1 0 0 0 .71-.29 1 1 0 0 0 0-1.41l-.71-.71a1 1 0 0 0-1.41 1.41zm12 .29a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.64.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .64.29zM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2zm-9 8a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1zm6.36-2A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41zM12 6.5A5.5 5.5 0 1 0 17.5 12 5.51 5.51 0 0 0 12 6.5zm0 9A3.5 3.5 0 1 1 15.5 12 3.5 3.5 0 0 1 12 15.5z" />
+          </svg>
+          <svg class="swap-on h-6 w-6 fill-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M21.64 13a1 1 0 0 0-1.05-.14 8.05 8.05 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05z" />
+          </svg>
+        </label>
+      </li>
+    </ul>
+    <form method="post" action="{% url 'account_logout' %}">
+      {% csrf_token %}
+      {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <button type="submit" class="bg-red-600 hover:bg-red-700 w-full text-white p-2 rounded-lg font-medium transition cursor-pointer text-xs">Log Out</button>
+    </form>
+  </div>
+{% endblock %}
