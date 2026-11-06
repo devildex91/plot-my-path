@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block header %}
-    
+{% block content %}
+{% static 'images/home_img.avif' as hero_image %}
+
 <div class="flex flex-col items-center px-4">
   <h1 class="title text-2xl mt-10 font-extrabold text-center text-primary">
      {{ greeting }}, {{ user.first_name }} <i class="{{ icon }}"></i>
@@ -13,21 +14,18 @@
   <div 
   id="searchDiv" 
   data-base-url="{% url 'details' 0 %}"
-  class="my-4"></div>
+  class="my-4 text-primary"></div>
 </div>
 
-{% endblock %}
-
-{% block content %}
-{% static 'images/home_img.avif' as hero_image %}
 
 <div class=" relative flex flex-col rounded-xl m-4 bg-cover bg-center md:bg-bottom bg-no-repeat min-h-96 px-6 py-12"
     style="background-image: url('{{hero_image}}');">
-    <div class="font-bold text-white mb-6">
-    <h3 class="text-3xl mb-3">
+    <div class="absolute inset-0 bg-base-100/50 rounded-xl"></div>
+    <div class="relative font-bold text-primary mb-6">
+    <h2 class="text-3xl mb-3">
         Explore the world one trip at a time
-    </h3>
-    <h4>Holiday planning, made simple.</h4>
+    </h2>
+    <p class = "font-semibold">Holiday planning, made simple.</p>
 <ol class="text-sm list-decimal list-inside mt-2 space-y-1">
   <li>
     <a href="{% url 'destination_lists' %}" class="hover:text-secondary transition-colors">Explore</a>
@@ -38,29 +36,36 @@
   <li>Complete our simple booking form, then choose your attractions and build your itinerary.</li>
 </ol>
     </div>
-    <a href = "{% url 'organise_trip' %}" class = "btn btn-primary mt-auto self-end">Start Planning</a>
+    <a href = "{% url 'organise_trip' %}" class = "relative btn btn-primary mt-auto self-end">Start Planning</a>
     
 </div>
 
 <div class ="box-border flex flex-col px-4 mt-8 w-full mb-2">
 
-  <span class = "flex flex-row items-center justify-around pb-4"><h2 class = "text-xl font-extrabold text-primary ml-2">Popular Destinations</h2> <a href = "{% url 'destination_lists' %}" class = "text-sm font-bold border border-primary text-primary rounded-xl p-2 mr-2">View all </a> </span>
+  <div class = "flex items-center justify-between pb-2"><h2 class = "text-xl font-extrabold text-primary ml-2">Popular Destinations</h2> <a href = "{% url 'destination_lists' %}" class = "btn btn-primary rounded-xl p-2 mr-2">View all </a> </div>
 
-  <div class="flex flex-col md:flex-row w-full justify-evenly">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
   {% for destination in popular_destinations %}
-<div class="card bg-base-100 grow sm:max-w-[80%] mb-2 sm:self-center lg:max-w-[40%] shadow-sm border border-base-200">
-  <figure>
+<div class="card bg-base-200 shadow-sm border border-primary">
+  <figure class="aspect-[4/3]">
     <img src="{{ destination.get_image_url }}" alt="{{ destination.name }}" class="w-full h-full object-cover">
   </figure>
   <div class="card-body p-4">
-    <h2 class="card-title text-lg font-extrabold text-primary">{{ destination.name }}</h2>
-    <p class="text-md text-primary font-bold opacity-80">Average cost per day: £{{ destination.average_cost_per_day }}</p>
+    <h3 class="card-title text-lg font-extrabold text-primary">{{ destination.name }}</h3>
+    <p class="text-base text-primary font-bold opacity-80">Average cost per day: £{{ destination.average_cost_per_day }}</p>
     <div class="card-actions justify-end mt-2">
       <a href="{% url 'details' destination.id %}" class="btn btn-primary btn-sm max-w-full whitespace-normal">View Details</a>
     </div>
   </div>
 </div>
-
+{% empty %}
+ <div class="card bg-base-200 border border-primary md:col-span-2">
+    <div class="card-body p-4">
+      <h3 class="card-title text-primary">We're very sorry</h3>
+      <p>We seem to be having some technical issues. Please check back soon.</p>
+    </div>
+  </div>
+ 
 {% endfor %}
 </div>
 

@@ -7,10 +7,10 @@
         {% for trip in trips %}
           <div class="card bg-base-200 w-full shadow-sm border border-primary">
             <figure class="aspect-[4/3]">
-              <img src="{{ trip.destination.get_image_url }}" alt="{{ trip.destination }}" />
+              <img src="{{ trip.destination.get_image_url }}" alt="{{ trip.destination }}" loading="lazy" class="w-full h-full object-cover" />
             </figure>
             <div class="card-body">
-              <h2 class="font-bold text-xl">{{ trip.name }}</h2>
+              <h2 class="card-title">{{ trip.name }}</h2>
               <h3 class="font-bold text-xl">To: {{ trip.destination }}</h3>
               <div class="card-actions justify-end">
                 <a href="{% url 'itinerary_builder' trip.id %}" class="btn btn-primary">View Trip</a>

@@ -1,24 +1,27 @@
 {% load django_vite %}
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en" data-theme="fantasy">
-<head>
+  <head>
     {% vite_react_refresh %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plot My Path</title>
+    <link rel="stylesheet" href="{% vite_asset_url 'assets/styles/style.css' %}" />
     {# Make Django's static asset base URL available to the React onboarding carousel. #}
-     <script>
-      window.DJANGO_STATIC_URL = "{% static '' %}";
+    <script>
+      window.DJANGO_STATIC_URL = "{% static '' %}"
+      ;(function () {
+        const saved = localStorage.getItem('theme')
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'sunset' : 'fantasy'))
+      })()
     </script>
+  </head>
+  <body class="min-h-screen bg-base-100">
+    <div id="onboarding" data-home-url="{% url 'home' %}"></div>
 
-    <link rel="stylesheet" href="{% vite_asset_url 'assets/styles/style.css' %}" /> 
-</head>
-<body class="min-h-screen bg-base-100"> 
-      <div id="onboarding" data-home-url="{% url 'home' %}"></div>
-
-   {% vite_asset 'assets/main.jsx' %}
-</body>
+    {% vite_asset 'assets/main.jsx' %}
+  </body>
 </html>
