@@ -48,16 +48,16 @@
     
 <nav class="navbar bg-base-100 shadow-sm mt-auto border-t border-base-200 w-full box-border h-[65px] fixed bottom-0 left-0 sm:top-0 sm:bottom-auto border-t-2 border-primary sm:border-t-0 sm:border-b-2 ">
     <div class="flex justify-around items-center py-2 w-full min-w-0 gap-1 primary">
-        <a href="/home" class="text-xl text-primary hover:text-secondary transition-colors" aria-label="Home">
+        <a href="/home" class="text-xl text-primary hover:text-secondary transition-colors text-center" aria-label="Home">
             <i class="fa-solid fa-house"></i><p class="text-xs">Home</p>
         </a>
-        <a href= "{% url 'my_trips' %}" class="text-xl text-primary hover:text-secondary transition-colors" aria-label="Trips">
+        <a href= "{% url 'my_trips' %}" class="text-xl text-primary hover:text-secondary transition-colors text-center" aria-label="Trips">
             <i class="fa-solid fa-briefcase primary"></i><p class="text-xs">Trips</p>
         </a>
-        <a href="{% url 'destination_lists' %}" class="text-xl text-primary hover:text-secondary transition-colors" aria-label="Explore">
-            <i class="fa-solid fa-compass"></i><p class="text-xs">Explore</p>
+        <a href="{% url 'destination_lists' %}" class="text-xl text-primary hover:text-secondary transition-colors text-center" aria-label="Explore">
+            <i class="fa-solid fa-compass"></i><p class="text-xs">Destinations</p>
         </a>
-        <a href="{% url 'profile' %}" class="text-xl text-primary hover:text-secondary transition-colors" aria-label="Profile">
+        <a href="{% url 'profile' %}" class="text-xl text-primary hover:text-secondary transition-colors text-center" aria-label="Profile">
             <i class="fa-solid fa-user"></i><p class="text-xs">Profile</p>
         </a>
         
